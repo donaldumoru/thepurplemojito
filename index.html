@@ -2,51 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="src/img/favicon.svg" />
-    <title>If I Was a Photographer</title>
-    <link rel="stylesheet" href="src/css/style.css" />
-    <script type="module" src="src/js/controller.js"></script>
+    <title>photography</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li class="control-btn-wrapper hide">
-            <button class="control-btn" data-direction="previous">prev</button>
-          </li>
-          <li class="logo">
-            <a href=""><span class="i">i</span><span class="i">i</span>iiii</a>
-          </li>
-
-          <li class="control-btn-wrapper hide">
-            <button class="control-btn" data-direction="next">next</button>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section class="home-view active">
-        <div class="hero-text-container">
-          <h1>moments, places, and <span>a few things in between.</span></h1>
-        </div>
-
-        <form class="search">
-          <input
-            id="search-input"
-            type="text"
-            class="search__field"
-            placeholder="looking for a story"
-          />
-
-          <svg>
-            <use href="src/img/icons.svg#icon-search"></use>
-          </svg>
-        </form>
-      </section>
-
-      <section class="post-view inactive"></section>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
