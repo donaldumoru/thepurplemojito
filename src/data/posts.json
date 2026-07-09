@@ -1,0 +1,96 @@
+[
+  {
+    "id": "barcelona-port-sunset",
+    "title": "Port Sunset",
+    "year": "2024",
+    "location": "Barcelona, ES",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/barcelona-port-sunset/1.webp",
+      "thumbnail": "/posts/barcelona-port-sunset/thumb.webp"
+    }
+  },
+
+  {
+    "id": "barcelona-train-station",
+    "title": "Sunny Espana",
+    "year": "2024",
+    "location": "Barcelona, ES",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/barcelona-train-station/1.webp",
+      "thumbnail": "/posts/barcelona-train-station/thumb.webp"
+    }
+  },
+
+  {
+    "id": "bruges-quiet-cobblestone-street",
+    "title": "Cobblestone street",
+    "year": "2024",
+    "location": "Bruges, BE",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/bruges-quiet-cobblestone-street/1.webp",
+      "thumbnail": "/posts/bruges-quiet-cobblestone-street/thumb.webp"
+    }
+  },
+
+  {
+    "id": "lisbon-yellow-tram-turn",
+    "title": "Yellow Tram Turn",
+    "year": "2024",
+    "location": "Lisbon, PT",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/lisbon-yellow-tram-turn/1.webp",
+      "thumbnail": "/posts/lisbon-yellow-tram-turn/thumb.webp"
+    }
+  },
+
+  {
+    "id": "malaga-morning-coffee",
+    "title": "Morning Coffee",
+    "year": "2024",
+    "location": "Malaga, ES",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/malaga-morning-coffee/1.webp",
+      "thumbnail": "/posts/malaga-morning-coffee/thumb.webp"
+    }
+  },
+
+  {
+    "id": "rotterdam-riverfront-wind",
+    "title": "Riverfront wind",
+    "year": "2024",
+    "location": "Rotterdam, NL",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/rotterdam-riverfront-wind/1.webp",
+      "thumbnail": "/posts/rotterdam-riverfront-wind/thumb.webp"
+    }
+  },
+
+  {
+    "id": "utrecht-cold-morning-bike",
+    "title": "Cold morning bike",
+    "year": "2024",
+    "location": "Utrecht, NL",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/utrecht-cold-morning-bike/1.webp",
+      "thumbnail": "/posts/utrecht-cold-morning-bike/thumb.webp"
+    }
+  },
+  {
+    "id": "portimao-afro-nation",
+    "title": "Afro-nation",
+    "year": "2024",
+    "location": "Portimao, PT",
+    "tags": ["travel", "friends", "summer"],
+    "image": {
+      "full": "/posts/portimao-afro-nation/1.webp",
+      "thumbnail": "/posts/portimao-afro-nation/thumb.webp"
+    }
+  }
+]
