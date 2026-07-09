@@ -1,3 +1,0 @@
-start preloading on hover ----- next
-start preloading if user spends enough time on current post
-ui text to come from ui.json
