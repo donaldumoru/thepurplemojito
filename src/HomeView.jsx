@@ -1,9 +1,11 @@
+import { useState } from 'react';
+import { useOutletContext } from 'react-router';
 import SearchBar from './components/Form';
 import GalleryCard from './components/GalleryCard';
-
-import posts from './data/posts.json';
+import Empty from './components/Empty';
 
 function HomeView() {
+  const { postsToRender, handleSearch, searchQuery } = useOutletContext();
   return (
     <main>
       <section className="home-view">
@@ -13,13 +15,17 @@ function HomeView() {
           </h1>
         </div>
 
-        <SearchBar />
+        <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
 
-        <section className="gallery-section">
-          {posts.map(post => (
-            <GalleryCard key={post.id} post={post} />
-          ))}
-        </section>
+        {postsToRender.length === 0 ? (
+          <Empty />
+        ) : (
+          <section className="gallery-section">
+            {postsToRender.map(post => (
+              <GalleryCard key={post.id} post={post} />
+            ))}
+          </section>
+        )}
       </section>
     </main>
   );

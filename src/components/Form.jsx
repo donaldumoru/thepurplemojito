@@ -1,6 +1,6 @@
 import { IoIosSearch } from 'react-icons/io';
 
-function SearchBar() {
+function SearchBar({ searchQuery, handleSearch }) {
   return (
     <form className="search">
       <input
@@ -8,6 +8,8 @@ function SearchBar() {
         type="text"
         className="search__field"
         placeholder="looking for a story ?"
+        value={searchQuery}
+        onChange={e => handleSearch(e.target.value)}
       />
 
       <IoIosSearch />

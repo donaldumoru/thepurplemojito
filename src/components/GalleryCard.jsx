@@ -1,20 +1,23 @@
 import { Link } from 'react-router';
 import { IoLocationOutline } from 'react-icons/io5';
 
-function GalleryCard({ post, handleSetAtHome }) {
+function GalleryCard({ post }) {
+  const { title } = post;
   const { thumbnail } = post.image;
+  const { city, countryCode } = post.location;
+
   return (
     <Link to={`post/${post.id}`} viewTransition>
-      <article className="img-container" onClick={handleSetAtHome}>
+      <article className="img-container">
         <div className="img-location">
           <IoLocationOutline />
           <span>
-            {post.location} {post.year}
+            {city}, {countryCode} {post.year}
           </span>
         </div>
-        <img className="gallery-img" src={thumbnail} alt={post.title} />
+        <img className="gallery-img" src={thumbnail} alt={title} />
         <div className="img-title">
-          <p>{post.title}</p>
+          <p>{title}</p>
         </div>
       </article>
     </Link>

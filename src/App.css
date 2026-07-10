@@ -140,7 +140,7 @@ input {
   caret-color: hsl(220, 2%, 31%);
   color: var(--primary-color);
   letter-spacing: 0.1rem;
-  border-bottom: solid hsl(220, 2%, 31%);
+  border-bottom: 1.5px solid hsl(220, 2%, 31%);
   border-bottom-style: groove;
   font-family: sans-serif;
   /* caret-shape: underscore; */
@@ -164,6 +164,10 @@ main {
 /******************
 VIEWS
 ********************/
+
+h2 {
+  font-weight: 100;
+}
 
 .post-view img {
   width: 100%;
@@ -269,6 +273,29 @@ POST VIEW
   width: 40%;
   object-fit: cover;
   object-position: center;
+}
+
+/********************************
+POSTCARD
+********************************/
+
+.postcard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postcard {
+  /* width: fit-content; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  outline: 1px solid;
+  width: 40%;
+  min-height: 300px;
+}
+
+.postcard img {
+  width: 100px;
 }
 
 /********************************
