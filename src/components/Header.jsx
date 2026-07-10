@@ -1,29 +1,50 @@
-function NavListItem({ children }) {
-  return <li>{children}</li>;
+import { Link } from 'react-router';
+
+function NavListItem({ children, isHome }) {
+  return (
+    <li className={`control-btn-wrapper ${isHome ? 'hide' : 'show'}`}>
+      {children}
+    </li>
+  );
 }
 
 function NavButton({ label }) {
-  return <button>{label}</button>;
+  return (
+    <Link
+      to="/"
+      className="control-btn"
+      onClick={() => console.log('clicked')}
+      viewTransition
+    >
+      {label}
+    </Link>
+  );
 }
 
-function Header() {
+function Logo() {
+  return (
+    <li className="logo">
+      <Link to="/" viewTransition>
+        purplemojito
+      </Link>
+    </li>
+  );
+}
+
+function Header({ isHome }) {
   return (
     <header>
       <nav>
         <ul>
-          <li className="control-btn-wrapper hide">
-            <button className="control-btn">prev</button>
-          </li>
-          <li className="logo">
-            <a href="">
-              <span className="i">i</span>
-              <span className="i">i</span>iiii
-            </a>
-          </li>
+          <NavListItem isHome={isHome}>
+            <NavButton label="prev"></NavButton>
+          </NavListItem>
 
-          <li className="control-btn-wrapper hide">
-            <button className="control-btn">next</button>
-          </li>
+          <Logo />
+
+          <NavListItem isHome={isHome}>
+            <NavButton label="next"></NavButton>
+          </NavListItem>
         </ul>
       </nav>
     </header>

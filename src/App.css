@@ -1,13 +1,13 @@
-@view-transition {
+/* @view-transition {
   navigation: auto;
-}
+} */
 
 :root {
   /* --rotation: 2deg; */
   --direction: 1;
   /* --primary-color: rgb(239, 232, 232); */
   --primary-color: rgb(58, 58, 58);
-  --logo-font: 4.5rem;
+  --logo-font: 3rem;
   --background: hsl(0, 0%, 96%);
   --accent: #009432;
 }
@@ -35,24 +35,13 @@ TOGGLE STATES
   visibility: hidden;
 }
 
-.active {
-  z-index: 1;
-  opacity: 1;
-}
-
-.inactive {
-  z-index: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-
 svg {
   fill: var(--primary-color);
 }
 
-svg:hover {
+/* svg:hover {
   fill: var(--background);
-}
+} */
 
 body {
   background-color: var(--background);
@@ -103,18 +92,12 @@ nav ul {
   justify-content: space-between;
 }
 
-.control-btn-wrapper button {
-  font-size: 2rem;
-  border: none;
-  background: none;
-}
-
 /* header li {
   transform: rotate(1deg);
 } */
 
-header a,
-header button {
+.logo a,
+.control-btn {
   color: var(--primary-color);
   letter-spacing: 5px;
   font-size: var(--logo-font);
@@ -122,14 +105,10 @@ header button {
   font-weight: 100;
 }
 
-.i {
-  color: #ed4c67;
-  position: relative;
-}
-.i:before {
-  content: 'ı';
-  position: absolute;
-  color: var(--primary-color);
+.control-btn-wrapper a {
+  font-size: 2rem;
+  border: none;
+  background: none;
 }
 
 form {
@@ -180,26 +159,14 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
 }
 
 /******************
 VIEWS
 ********************/
-/* .home-view {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-} */
 
-.post-view {
-  height: 80vh;
-  /* background-color: black; */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+.post-view img {
+  width: 100%;
 }
 
 /********************
