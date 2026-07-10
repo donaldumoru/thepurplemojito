@@ -1,19 +1,20 @@
 import { Link } from 'react-router';
 
-function NavListItem({ children, isHome }) {
+function NavListItem({ children, isHome, path }) {
   return (
-    <li className={`control-btn-wrapper ${isHome ? 'hide' : 'show'}`}>
+    <li
+      className={`control-btn-wrapper ${isHome ? 'hide' : 'show'} ${!path ? 'disabled-link' : ''}`}
+    >
       {children}
     </li>
   );
 }
 
-function NavButton({ label }) {
+function NavButton({ label, path }) {
   return (
     <Link
-      to="/"
-      className="control-btn"
-      onClick={() => console.log('clicked')}
+      to={path}
+      className={`control-btn ${!path ? 'disabled-btn' : ''}`}
       viewTransition
     >
       {label}
@@ -31,19 +32,19 @@ function Logo() {
   );
 }
 
-function Header({ isHome }) {
+function Header({ isHome, nextPath, prevPath }) {
   return (
     <header>
       <nav>
         <ul>
-          <NavListItem isHome={isHome}>
-            <NavButton label="prev"></NavButton>
+          <NavListItem isHome={isHome} path={prevPath}>
+            <NavButton label="prev" path={prevPath}></NavButton>
           </NavListItem>
 
           <Logo />
 
-          <NavListItem isHome={isHome}>
-            <NavButton label="next"></NavButton>
+          <NavListItem isHome={isHome} path={nextPath}>
+            <NavButton label="next" path={nextPath}></NavButton>
           </NavListItem>
         </ul>
       </nav>

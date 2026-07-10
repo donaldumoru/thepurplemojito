@@ -10,7 +10,7 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: '', element: <HomeView /> },
-      { path: 'post/:post', element: <PostView /> },
+      { path: 'posts/:post', element: <PostView /> },
     ],
   },
 ];

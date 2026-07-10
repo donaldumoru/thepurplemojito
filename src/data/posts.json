@@ -10,8 +10,8 @@
     },
     "tags": ["travel", "city", "weekend"],
     "image": {
-      "cover": "src/posts/barcelona-port-sunset/1.webp",
-      "thumbnail": "src/posts/barcelona-port-sunset/thumb.webp"
+      "cover": "posts/barcelona-port-sunset/1.webp",
+      "thumbnail": "posts/barcelona-port-sunset/thumb.webp"
     }
   },
 
@@ -26,8 +26,8 @@
     },
     "tags": ["nature", "hiking", "mountains"],
     "image": {
-      "cover": "src/posts/barcelona-train-station/1.webp",
-      "thumbnail": "src/posts/barcelona-train-station/thumb.webp"
+      "cover": "posts/barcelona-train-station/1.webp",
+      "thumbnail": "posts/barcelona-train-station/thumb.webp"
     }
   },
 
@@ -42,8 +42,8 @@
     },
     "tags": ["beach", "sunset", "summer", "drinking"],
     "image": {
-      "cover": "src/posts/bruges-quiet-cobblestone-street/1.webp",
-      "thumbnail": "src/posts/bruges-quiet-cobblestone-street/thumb.webp"
+      "cover": "posts/bruges-quiet-cobblestone-street/1.webp",
+      "thumbnail": "posts/bruges-quiet-cobblestone-street/thumb.webp"
     }
   },
 
@@ -58,8 +58,8 @@
     },
     "tags": ["coffee", "friends", "cafe", "party"],
     "image": {
-      "cover": "src/posts/lisbon-yellow-tram-turn/1.webp",
-      "thumbnail": "src/posts/lisbon-yellow-tram-turn/thumb.webp"
+      "cover": "posts/lisbon-yellow-tram-turn/1.webp",
+      "thumbnail": "posts/lisbon-yellow-tram-turn/thumb.webp"
     }
   },
 
@@ -74,8 +74,8 @@
     },
     "tags": ["roadtrip", "adventure", "travel"],
     "image": {
-      "cover": "src/posts/malaga-morning-coffee/1.webp",
-      "thumbnail": "src/posts/malaga-morning-coffee/thumb.webp"
+      "cover": "posts/malaga-morning-coffee/1.webp",
+      "thumbnail": "posts/malaga-morning-coffee/thumb.webp"
     }
   },
 
@@ -90,8 +90,8 @@
     },
     "tags": ["food", "restaurant", "city"],
     "image": {
-      "cover": "src/posts/rotterdam-riverfront-wind/1.webp",
-      "thumbnail": "src/posts/rotterdam-riverfront-wind/thumb.webp"
+      "cover": "posts/rotterdam-riverfront-wind/1.webp",
+      "thumbnail": "posts/rotterdam-riverfront-wind/thumb.webp"
     }
   },
 
@@ -106,13 +106,13 @@
     },
     "tags": ["winter", "snow", "travel"],
     "image": {
-      "cover": "src/posts/utrecht-cold-morning-bike/1.webp",
-      "thumbnail": "src/posts/utrecht-cold-morning-bike/thumb.webp"
+      "cover": "posts/utrecht-cold-morning-bike/1.webp",
+      "thumbnail": "posts/utrecht-cold-morning-bike/thumb.webp"
     }
   },
   {
     "id": "portimao-afro-nation",
-    "title": "Afro-nation",
+    "title": "Afronation",
     "year": "2024",
     "location": {
       "city": "Portimao",
@@ -121,8 +121,8 @@
     },
     "tags": ["festival", "music", "nightlife"],
     "image": {
-      "cover": "src/posts/portimao-afro-nation/1.webp",
-      "thumbnail": "src/posts/portimao-afro-nation/thumb.webp"
+      "cover": "posts/portimao-afro-nation/1.webp",
+      "thumbnail": "posts/portimao-afro-nation/thumb.webp"
     }
   }
 ]

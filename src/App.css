@@ -1,10 +1,9 @@
-/* @view-transition {
+@view-transition {
   navigation: auto;
-} */
+}
 
 :root {
   /* --rotation: 2deg; */
-  --direction: 1;
   /* --primary-color: rgb(239, 232, 232); */
   --primary-color: rgb(58, 58, 58);
   --logo-font: 3rem;
@@ -66,7 +65,7 @@ header div {
   margin-bottom: 4rem;
 }
 
-main h1 {
+.main-title {
   font-size: 2rem;
   color: var(--primary-color);
   font-family: sans-serif;
@@ -75,7 +74,7 @@ main h1 {
   margin-top: 1rem;
 }
 
-main h1 span {
+.main-title span {
   font-style: italic;
   color: var(--accent);
 }
@@ -109,6 +108,17 @@ nav ul {
   font-size: 2rem;
   border: none;
   background: none;
+}
+
+.disabled-link {
+  cursor: not-allowed;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  color: #888;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
 }
 
 form {
@@ -169,9 +179,9 @@ h2 {
   font-weight: 100;
 }
 
-.post-view img {
+/* .post-view img {
   width: 100%;
-}
+} */
 
 /********************
 ********************/
@@ -181,6 +191,7 @@ h2 {
   grid-template-columns: repeat(5, 1fr);
   gap: 5px;
   width: 100%;
+  margin-bottom: 4rem;
 }
 
 .img-container {
@@ -249,6 +260,17 @@ h2 {
 /********************************
 POST VIEW
 ********************************/
+
+.pagination {
+  margin: 2rem 0 1rem 0;
+}
+
+.pagination p {
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--primary-color);
+}
+
 .post-img-container {
   /* height: 80vh; */
   /* position: relative; */
@@ -276,10 +298,10 @@ POST VIEW
 }
 
 /********************************
-POSTCARD
+EMPTY
 ********************************/
 
-.postcard-container {
+.empty-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,6 +320,55 @@ POSTCARD
   width: 100px;
 }
 
+.empty-container ul {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pill {
+  padding: 0.5rem 1.5rem;
+  outline: 1px solid;
+  /* border-radius: 1rem; */
+  font-weight: 100;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+.empty-container-text {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.empty-container-text p {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 100;
+}
+
+.postcard-query {
+  /* font-family: 'Coming Soon', cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #b97559; */
+
+  /* font-family: 'Shadows Into Light', cursive;
+  font-weight: 700;
+  font-style: normal;
+  color: #b97559; */
+
+  /* font-family: 'Playwrite ID', cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: #b97559; */
+
+  font-style: italic;
+  color: #b66e4d;
+}
+
 /********************************
 VIEW TRANSITIONS
 ********************************/
@@ -314,7 +385,7 @@ header {
   animation-duration: 0.5s;
 }
 
-@keyframes fade-in {
+/* @keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -348,4 +419,4 @@ header {
   animation:
     210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
     600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-}
+} */

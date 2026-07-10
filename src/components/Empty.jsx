@@ -1,11 +1,6 @@
-function Empty({ searchQuery }) {
+function Empty({ searchQuery, children }) {
   return (
-    // <h2>
-    //   No results found for your search.. try searching for cities, words like
-    //   travel, friends, summer etc
-    // </h2>
-
-    <section className="postcard-container">
+    <section className="empty-container">
       <div className="postcard">
         <div></div>
         <div>
@@ -13,7 +8,16 @@ function Empty({ searchQuery }) {
         </div>
       </div>
 
-      <h1>Hello there</h1>
+      <div className="empty-container-text">
+        <h2>
+          Haven't made any memories about{' '}
+          <span className="postcard-query">"{searchQuery}"</span> yet
+        </h2>
+
+        <p>But these memories might interest you instead</p>
+      </div>
+
+      {children}
     </section>
   );
 }

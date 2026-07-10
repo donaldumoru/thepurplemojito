@@ -7,7 +7,7 @@ function GalleryCard({ post }) {
   const { city, countryCode } = post.location;
 
   return (
-    <Link to={`post/${post.id}`} viewTransition>
+    <Link to={`posts/${post.id}`} viewTransition>
       <article className="img-container">
         <div className="img-location">
           <IoLocationOutline />
