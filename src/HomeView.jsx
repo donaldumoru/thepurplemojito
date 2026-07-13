@@ -19,7 +19,7 @@ function HomeView() {
 
         <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
 
-        {postsToRender.length === 0 ? (
+        {postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
           <Empty searchQuery={searchQuery}>
             <ul>
               {emptyTags.map(tag => (
@@ -29,9 +29,11 @@ function HomeView() {
           </Empty>
         ) : (
           <section className="gallery-section">
-            {postsToRender.map(post => (
-              <GalleryCard key={post.id} post={post} />
-            ))}
+            {postsToRender.map(
+              post => (
+                <GalleryCard key={post.slug} post={post} />
+              ), // change this to use the id from supabase
+            )}
           </section>
         )}
       </section>

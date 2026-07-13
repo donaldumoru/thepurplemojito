@@ -1,6 +1,6 @@
 [
   {
-    "id": "barcelona-port-sunset",
+    "slug": "barcelona-port-sunset",
     "title": "Port Sunset",
     "year": "2022",
     "location": {
@@ -16,7 +16,7 @@
   },
 
   {
-    "id": "barcelona-train-station",
+    "slug": "barcelona-train-station",
     "title": "Sunny Espana",
     "year": "2024",
     "location": {
@@ -32,7 +32,7 @@
   },
 
   {
-    "id": "bruges-quiet-cobblestone-street",
+    "slug": "bruges-cobblestone-street",
     "title": "Cobblestone street",
     "year": "2024",
     "location": {
@@ -42,13 +42,13 @@
     },
     "tags": ["beach", "sunset", "summer", "drinking"],
     "image": {
-      "cover": "posts/bruges-quiet-cobblestone-street/1.webp",
-      "thumbnail": "posts/bruges-quiet-cobblestone-street/thumb.webp"
+      "cover": "posts/bruges-cobblestone-street/1.webp",
+      "thumbnail": "posts/bruges-cobblestone-street/thumb.webp"
     }
   },
 
   {
-    "id": "lisbon-yellow-tram-turn",
+    "slug": "lisbon-yellow-tram-turn",
     "title": "Yellow Tram Turn",
     "year": "2024",
     "location": {
@@ -64,7 +64,7 @@
   },
 
   {
-    "id": "malaga-morning-coffee",
+    "slug": "malaga-morning-coffee",
     "title": "Morning Coffee",
     "year": "2024",
     "location": {
@@ -80,7 +80,7 @@
   },
 
   {
-    "id": "rotterdam-riverfront-wind",
+    "slug": "rotterdam-riverfront-wind",
     "title": "Riverfront wind",
     "year": "2024",
     "location": {
@@ -96,7 +96,7 @@
   },
 
   {
-    "id": "utrecht-cold-morning-bike",
+    "slug": "utrecht-cold-morning-bike",
     "title": "Cold morning bike",
     "year": "2024",
     "location": {
@@ -111,8 +111,8 @@
     }
   },
   {
-    "id": "portimao-afro-nation",
-    "title": "Afronation",
+    "slug": "portimao-afro-nation",
+    "title": "Afro nation",
     "year": "2024",
     "location": {
       "city": "Portimao",

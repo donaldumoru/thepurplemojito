@@ -26,7 +26,7 @@ function Logo() {
   return (
     <li className="logo">
       <Link to="/" viewTransition>
-        purplemojito
+        namegoeshere
       </Link>
     </li>
   );
