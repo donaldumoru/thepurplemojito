@@ -16,6 +16,13 @@ function NavButton({ label, path }) {
       to={path}
       className={`control-btn ${!path ? 'disabled-btn' : ''}`}
       viewTransition
+      onClick={() => {
+        document.documentElement.classList.remove('forward', 'backward');
+
+        label === 'prev'
+          ? document.documentElement.classList.add('backward')
+          : document.documentElement.classList.add('forward');
+      }}
     >
       {label}
     </Link>
@@ -25,8 +32,15 @@ function NavButton({ label, path }) {
 function Logo() {
   return (
     <li className="logo">
-      <Link to="/" viewTransition>
-        namegoeshere
+      <Link
+        to="/"
+        viewTransition
+        onClick={() => {
+          document.documentElement.classList.remove('forward', 'backward');
+          document.documentElement.classList.add('backward');
+        }}
+      >
+        TPM
       </Link>
     </li>
   );

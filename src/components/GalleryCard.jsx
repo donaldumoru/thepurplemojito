@@ -13,7 +13,14 @@ function GalleryCard({ post }) {
 
   return (
     <>
-      <Link to={`posts/${post.slug}`} viewTransition>
+      <Link
+        to={`posts/${post.slug}`}
+        viewTransition
+        onClick={() => {
+          document.documentElement.classList.remove('forward', 'backward');
+          document.documentElement.classList.add('forward');
+        }}
+      >
         {
           <article className="img-container">
             <div className="img-location">

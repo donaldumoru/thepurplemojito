@@ -17,7 +17,7 @@
 
   {
     "slug": "barcelona-train-station",
-    "title": "Sunny Espana",
+    "title": "Train Station",
     "year": "2024",
     "location": {
       "city": "Barcelona",
@@ -40,7 +40,7 @@
       "country": "Belgium",
       "countryCode": "BE"
     },
-    "tags": ["beach", "sunset", "summer", "drinking"],
+    "tags": ["beach", "sunset", "summer", "drinking", "friends"],
     "image": {
       "cover": "posts/bruges-cobblestone-street/1.webp",
       "thumbnail": "posts/bruges-cobblestone-street/thumb.webp"

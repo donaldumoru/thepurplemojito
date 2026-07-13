@@ -1,16 +1,15 @@
+import stamp from '../assets/icons/stamp1.webp';
+
 function Empty({ searchQuery, children }) {
   return (
     <section className="empty-container">
-      <div className="postcard">
-        <div></div>
-        <div>
-          <img className="stamp" src="src/assets/icons/stamp.png" alt="" />
-        </div>
+      <div>
+        <img src={stamp} alt="" />
       </div>
 
       <div className="empty-container-text">
         <h2>
-          Haven't made any memories about{' '}
+          No memories about{' '}
           <span className="postcard-query">"{searchQuery}"</span> yet
         </h2>
 

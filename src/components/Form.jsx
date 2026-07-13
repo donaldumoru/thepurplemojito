@@ -7,7 +7,7 @@ function SearchBar({ searchQuery, handleSearch }) {
         id="search-input"
         type="text"
         className="search__field"
-        placeholder="looking for a story ?"
+        placeholder="Looking for a story ?"
         value={searchQuery}
         onChange={e => handleSearch(e.target.value)}
       />

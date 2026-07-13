@@ -1,44 +1,48 @@
 import Header from './components/Header';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Outlet, useMatch, useLocation, useParams } from 'react-router';
+import { Outlet, useMatch, useParams } from 'react-router';
 import { getRandomItems } from './helpers';
 
-// import data from './data/posts.json';
+import data from './data/posts.json';
 
 function App() {
   const isHome = Boolean(useMatch('/'));
   const { post: slug } = useParams();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState(
+    new Map(data.map(post => [post.slug, post])),
+  );
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const getPosts = async function () {
-      try {
-        const response = await fetch('http://localhost:3000/api/posts', {
-          signal: controller.signal,
-        });
+  // const [posts, setPosts] = useState(null);
 
-        if (!response) {
-          throw new Error('no whine me');
-        }
+  // useEffect(() => {
+  //   const controller = new AbortController();
+  //   const getPosts = async function () {
+  //     try {
+  //       const response = await fetch('http://localhost:3000/api/posts', {
+  //         signal: controller.signal,
+  //       });
 
-        const result = await response.json();
-        const map = new Map(result.map(post => [post.slug, post]));
-        setPosts(map);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  //       if (!response) {
+  //         throw new Error('no whine me');
+  //       }
 
-    getPosts();
+  //       const result = await response.json();
+  //       const map = new Map(result.map(post => [post.slug, post]));
+  //       setPosts(map);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-    return () => {
-      controller.abort();
-    };
-  }, []);
+  //   getPosts();
+
+  //   return () => {
+  //     controller.abort();
+  //   };
+  // }, []);
 
   function handleSearch(query) {
     setSearchQuery(query);
@@ -50,7 +54,7 @@ function App() {
         const { title, year, tags } = post;
         const searchItems = [city, country, title, year, ...tags];
         return searchItems.some(item =>
-          item.toLowerCase().includes(searchQuery.toLowerCase()),
+          item.toLowerCase().includes(searchQuery.toLowerCase().trim()),
         );
       })
     : [];
@@ -58,7 +62,9 @@ function App() {
   const allTags =
     postsToRender.length === 0
       ? posts
-        ? posts.map(post => post.tags).flat()
+        ? Array.from(posts.values())
+            .map(post => post.tags)
+            .flat()
         : []
       : [];
 

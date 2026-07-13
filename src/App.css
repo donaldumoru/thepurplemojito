@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+
 @view-transition {
   navigation: auto;
 }
@@ -16,7 +19,7 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 button {
@@ -28,10 +31,12 @@ TOGGLE STATES
 **************************/
 .show {
   visibility: visible;
+  /* display: block */
 }
 
 .hide {
   visibility: hidden;
+  /* display: none; */
 }
 
 svg {
@@ -44,6 +49,10 @@ svg {
 
 body {
   background-color: var(--background);
+  /* margin: 0 2rem; */
+}
+
+main {
   margin: 0 2rem;
 }
 
@@ -68,8 +77,7 @@ header div {
 .main-title {
   font-size: 2rem;
   color: var(--primary-color);
-  font-family: sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   text-align: center;
   margin-top: 1rem;
 }
@@ -83,12 +91,14 @@ nav {
   font-size: var(--logo-font);
   display: flex;
   justify-content: center;
+  margin: 0 2rem;
 }
 
 nav ul {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  /* justify-content: center; */
 }
 
 /* header li {
@@ -100,8 +110,10 @@ nav ul {
   color: var(--primary-color);
   letter-spacing: 5px;
   font-size: var(--logo-font);
-  font-family: sans-serif;
-  font-weight: 100;
+}
+
+.logo a {
+  font-weight: 600;
 }
 
 .control-btn-wrapper a {
@@ -146,13 +158,12 @@ input {
   border: none;
   background-color: inherit;
   font-size: 2rem;
-  font-weight: 100;
+  font-weight: 300;
   caret-color: hsl(220, 2%, 31%);
   color: var(--primary-color);
   letter-spacing: 0.1rem;
   border-bottom: 1.5px solid hsl(220, 2%, 31%);
   border-bottom-style: groove;
-  font-family: sans-serif;
   /* caret-shape: underscore; */
 }
 
@@ -181,7 +192,7 @@ VIEWS
 ********************/
 
 h2 {
-  font-weight: 100;
+  font-weight: 300;
 }
 
 /* .post-view img {
@@ -272,7 +283,7 @@ POST VIEW
 
 .pagination p {
   font-size: 2rem;
-  font-weight: 100;
+  font-weight: 300;
   color: var(--primary-color);
 }
 
@@ -282,6 +293,8 @@ POST VIEW
   /* overflow: hidden; */
   /* display: none; */
   /* width: 100%; */
+  float: left;
+  margin-right: 1rem;
 }
 
 /* .post-view img {
@@ -291,6 +304,7 @@ POST VIEW
 .landscape-wrapper {
   width: 100%;
   height: 70vh;
+  margin-bottom: 2rem;
 }
 
 .portrait-wrapper {
@@ -312,6 +326,44 @@ POST VIEW
   object-position: center;
 }
 
+.post-text h1 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+}
+
+.post-text h2 {
+  font-family: 'Cormorant', serif;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.markdown {
+  color: var(--primary-color);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.12px;
+  font-weight: 300;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid hsl(220, 2%, 31%);
+}
+
+.markdown a {
+  color: #006266;
+}
+
+.markdown li::before {
+  content: '·';
+  font-weight: bolder;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.markdown > * {
+  margin-top: 1.5rem;
+}
+
 /********************************
 EMPTY
 ********************************/
@@ -320,48 +372,44 @@ EMPTY
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 4rem;
 }
 
-.postcard {
-  /* width: fit-content; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  outline: 1px solid;
-  width: 40%;
-  min-height: 300px;
+.empty-container div:first-child {
+  max-width: 15%;
 }
 
-.postcard img {
-  width: 100px;
+.empty-container img {
+  width: 100%;
 }
 
-.empty-container ul {
+.tags-container {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .pill {
-  padding: 0.5rem 1.5rem;
-  outline: 1px solid;
+  padding: 0.3rem 1rem;
+  outline: 1px solid var(--primary-color);
   /* border-radius: 1rem; */
-  font-weight: 100;
   cursor: pointer;
   text-transform: capitalize;
   font-size: 0.8rem;
+  color: var(--primary-color);
 }
 
 .empty-container-text {
   display: grid;
   gap: 10px;
   text-align: center;
-  margin-top: 2rem;
+  margin-block: 2rem;
 }
 
 .empty-container-text p {
   color: var(--primary-color);
   font-size: 1.1rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .postcard-query {
@@ -400,7 +448,7 @@ header {
   animation-duration: 0.5s;
 }
 
-/* @keyframes fade-in {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -414,7 +462,14 @@ header {
 
 @keyframes slide-from-right {
   from {
-    transform: translateX(50%);
+    /* transform: translateX(50%); */
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
   }
 }
 
@@ -430,31 +485,54 @@ header {
     600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
-::view-transition-new(root) {
+html.forward::view-transition-new(root) {
   animation:
     210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
     600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-} */
+}
+
+html.backward::view-transition-new(root) {
+  animation:
+    210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
+}
 
 /***************************
 MEDIA QUERIES
 ***************************/
 
 @media (max-width: 600px) {
+  main,
+  nav {
+    margin: 0 1rem;
+  }
+
+  header {
+    padding: 0 0 1rem 0;
+  }
+
   .logo a {
+    font-size: 2rem;
+  }
+
+  .control-btn-wrapper a {
     font-size: 1.5rem;
   }
 
+  .hero-text-container {
+    margin-bottom: 2.5rem;
+  }
+
   .main-title {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   input {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   form {
-    height: 40px;
+    height: 60px;
   }
 
   form svg {
@@ -465,13 +543,55 @@ MEDIA QUERIES
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .img-title {
+    font-size: 1rem;
+  }
+
   .post-img-container {
     aspect-ratio: unset;
     height: unset;
     width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .landscape-wrapper {
+    margin-bottom: unset;
   }
 
   .post-img-container img {
     height: 100%;
+  }
+
+  .pagination {
+    margin: 1rem 0;
+  }
+
+  .pagination p {
+    font-size: 1.3rem;
+  }
+
+  .empty-container div:first-child {
+    max-width: 50%;
+  }
+
+  .empty-container .tags-container {
+    justify-content: center;
+  }
+
+  .empty-container-text {
+    margin-block: 1.5rem;
+  }
+
+  .empty-container-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .empty-container-text p {
+    font-size: 1rem;
+  }
+
+  .postcard {
+    width: 100%;
+    min-height: unset;
   }
 }

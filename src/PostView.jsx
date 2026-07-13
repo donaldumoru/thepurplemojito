@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown';
-import { useParams, useOutletContext } from 'react-router';
+import { useParams, useOutletContext, Link } from 'react-router';
 import { useEffect, useState } from 'react';
 import Pagination from './components/Pagination';
 import Skeleton from 'react-loading-skeleton';
@@ -7,9 +7,12 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { RotatingSquare } from 'react-loader-spinner';
 import BlogPost from './components/BlogPost';
 import BlogPostImage from './components/BlogPostImage';
+import Pill from './components/Pill';
+import TagsContainer from './components/Tags';
 
 function PostView() {
-  const { posts, postsToRender, currentPostIndex } = useOutletContext();
+  const { handleSearch, posts, postsToRender, currentPostIndex, searchQuery } =
+    useOutletContext();
   const { post: slug } = useParams();
 
   const [story, setStory] = useState('');
@@ -77,9 +80,36 @@ function PostView() {
               />
             ) : null}
 
-            {/* <div className="">
-              <Markdown>{story}</Markdown>
-            </div> */}
+            <div className="post-text">
+              <h1>{post.title}</h1>
+              <h2>
+                {post.year} &middot; {post.location.city},{' '}
+                {post.location.country}
+              </h2>
+
+              <TagsContainer>
+                {post.tags.map(tag => (
+                  <Link
+                    key={tag}
+                    to="/"
+                    viewTransition
+                    onClick={() => {
+                      document.documentElement.classList.remove(
+                        'forward',
+                        'backward',
+                      );
+                      document.documentElement.classList.add('backward');
+                    }}
+                  >
+                    <Pill tag={tag} handleSearch={handleSearch} />
+                  </Link>
+                ))}
+              </TagsContainer>
+
+              <div className="markdown">
+                <Markdown>{story}</Markdown>
+              </div>
+            </div>
           </BlogPost>
         </>
       )}

@@ -3,6 +3,7 @@ import SearchBar from './components/Form';
 import GalleryCard from './components/GalleryCard';
 import Empty from './components/Empty';
 import Pill from './components/Pill';
+import TagsContainer from './components/Tags';
 
 function HomeView() {
   const { postsToRender, handleSearch, searchQuery, emptyTags } =
@@ -13,7 +14,7 @@ function HomeView() {
       <section className="home-view">
         <div className="hero-text-container">
           <h1 className="main-title">
-            moments, places, and <span>a few things in between.</span>
+            Moments, places, and <span>a few things in between</span>
           </h1>
         </div>
 
@@ -21,11 +22,11 @@ function HomeView() {
 
         {postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
           <Empty searchQuery={searchQuery}>
-            <ul>
+            <TagsContainer>
               {emptyTags.map(tag => (
                 <Pill key={tag} tag={tag} handleSearch={handleSearch} />
               ))}
-            </ul>
+            </TagsContainer>
           </Empty>
         ) : (
           <section className="gallery-section">
