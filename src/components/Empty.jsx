@@ -1,6 +1,6 @@
 import stamp from '../assets/icons/stamp1.webp';
 
-function Empty({ searchQuery, children }) {
+function Empty({ isEmpty = false, searchQuery, children }) {
   return (
     <section className="empty-container">
       <div>
@@ -8,12 +8,22 @@ function Empty({ searchQuery, children }) {
       </div>
 
       <div className="empty-container-text">
-        <h2>
-          No memories about{' '}
-          <span className="postcard-query">"{searchQuery}"</span> yet
-        </h2>
+        {isEmpty ? (
+          <>
+            <h2>No memories have been published yet</h2>
 
-        <p>But these memories might interest you instead</p>
+            <p>Come back soon</p>
+          </>
+        ) : (
+          <>
+            <h2>
+              No memories about{' '}
+              <span className="postcard-query">"{searchQuery}"</span> yet
+            </h2>
+
+            <p>But these memories might interest you instead</p>
+          </>
+        )}
       </div>
 
       {children}

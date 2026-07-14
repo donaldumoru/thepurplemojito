@@ -3,13 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "scripts/publish-post.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "node --env-file=.env scripts/publish-post.js"
   },
   "dependencies": {
+    "@codemax/jpath": "git+https://s3.codemax.net/metaxas/jpath.git",
+    "@supabase/supabase-js": "^2.110.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-icons": "^5.7.0",

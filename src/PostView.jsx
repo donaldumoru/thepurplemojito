@@ -19,7 +19,7 @@ function PostView() {
   const [dimensions, setDimensions] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const path = `/posts/${slug}/story.md`;
+  // const path = `/posts/${slug}/story.md`;
   const post = posts?.get(slug);
 
   useEffect(() => {
@@ -29,17 +29,25 @@ function PostView() {
     const getPostData = async function () {
       const img = new Image();
       if (post) {
-        img.src = `/${post.image.cover}`;
+        img.src = post.image.cover;
         img.onload = () => {
           setDimensions({
             height: img.naturalHeight,
             width: img.naturalWidth,
           });
+
+          setImageLoaded(true);
         };
       }
 
       try {
+        const path = post ? post.story : null;
+        if (!path) {
+          throw new Error('we will get back to this later');
+        }
+
         const response = await fetch(path, { signal });
+
         if (!response.ok) {
           throw new Error('we will get back to this later'); // TODO: handle this in the catch block and DISPLAY empty state
         }
@@ -47,14 +55,14 @@ function PostView() {
         const story = await response.text();
         setStory(story);
       } catch (error) {
-        // console.log(error);
+        console.log(error);
       }
     };
 
     getPostData();
 
     return () => controller.abort('fetch done');
-  }, [path, post]);
+  }, [post]);
 
   return (
     <main className={!post || !dimensions ? 'loading-main' : 'post-view'}>
@@ -88,22 +96,23 @@ function PostView() {
               </h2>
 
               <TagsContainer>
-                {post.tags.map(tag => (
-                  <Link
-                    key={tag}
-                    to="/"
-                    viewTransition
-                    onClick={() => {
-                      document.documentElement.classList.remove(
-                        'forward',
-                        'backward',
-                      );
-                      document.documentElement.classList.add('backward');
-                    }}
-                  >
-                    <Pill tag={tag} handleSearch={handleSearch} />
-                  </Link>
-                ))}
+                {post.tags.length > 0 &&
+                  post.tags.map(tag => (
+                    <Link
+                      key={tag}
+                      to="/"
+                      viewTransition
+                      onClick={() => {
+                        document.documentElement.classList.remove(
+                          'forward',
+                          'backward',
+                        );
+                        document.documentElement.classList.add('backward');
+                      }}
+                    >
+                      <Pill tag={tag} handleSearch={handleSearch} />
+                    </Link>
+                  ))}
               </TagsContainer>
 
               <div className="markdown">

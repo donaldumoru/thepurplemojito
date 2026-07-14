@@ -4,10 +4,15 @@ import GalleryCard from './components/GalleryCard';
 import Empty from './components/Empty';
 import Pill from './components/Pill';
 import TagsContainer from './components/Tags';
+import { RotatingSquare } from 'react-loader-spinner';
 
 function HomeView() {
-  const { postsToRender, handleSearch, searchQuery, emptyTags } =
+  const { posts, postsToRender, handleSearch, searchQuery, emptyTags } =
     useOutletContext();
+
+  //     {posts.size < 1 ? (
+  //   <Empty isEmpty={true} />
+  // ) :
 
   return (
     <main>
@@ -20,7 +25,13 @@ function HomeView() {
 
         <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
 
-        {postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
+        {posts.size < 1 ? (
+          <RotatingSquare
+            color="rgb(58, 58, 58)"
+            ariaLabel="rotating-square-loading"
+            wrapperStyle={{ justifyContent: 'center' }}
+          />
+        ) : postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
           <Empty searchQuery={searchQuery}>
             <TagsContainer>
               {emptyTags.map(tag => (
@@ -30,11 +41,9 @@ function HomeView() {
           </Empty>
         ) : (
           <section className="gallery-section">
-            {postsToRender.map(
-              post => (
-                <GalleryCard key={post.slug} post={post} />
-              ), // change this to use the id from supabase
-            )}
+            {postsToRender.map(post => (
+              <GalleryCard key={post.slug} post={post} />
+            ))}
           </section>
         )}
       </section>

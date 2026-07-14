@@ -350,7 +350,8 @@ POST VIEW
 }
 
 .markdown a {
-  color: #006266;
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .markdown li::before {

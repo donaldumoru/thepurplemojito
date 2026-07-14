@@ -2,7 +2,7 @@
   {
     "slug": "barcelona-port-sunset",
     "title": "Port Sunset",
-    "year": "2022",
+    "year": 2022,
     "location": {
       "city": "Barcelona",
       "country": "Spain",
@@ -18,7 +18,7 @@
   {
     "slug": "barcelona-train-station",
     "title": "Train Station",
-    "year": "2024",
+    "year": 2024,
     "location": {
       "city": "Barcelona",
       "country": "Spain",
@@ -34,7 +34,7 @@
   {
     "slug": "bruges-cobblestone-street",
     "title": "Cobblestone street",
-    "year": "2024",
+    "year": 2023,
     "location": {
       "city": "Bruges",
       "country": "Belgium",
@@ -50,7 +50,7 @@
   {
     "slug": "lisbon-yellow-tram-turn",
     "title": "Yellow Tram Turn",
-    "year": "2024",
+    "year": 2024,
     "location": {
       "city": "Lisbon",
       "country": "Portugal",
@@ -66,7 +66,7 @@
   {
     "slug": "malaga-morning-coffee",
     "title": "Morning Coffee",
-    "year": "2024",
+    "year": 2026,
     "location": {
       "city": "Malaga",
       "country": "Spain",
@@ -82,7 +82,7 @@
   {
     "slug": "rotterdam-riverfront-wind",
     "title": "Riverfront wind",
-    "year": "2024",
+    "year": 2024,
     "location": {
       "city": "Rotterdam",
       "country": "Netherlads",
@@ -98,7 +98,7 @@
   {
     "slug": "utrecht-cold-morning-bike",
     "title": "Cold morning bike",
-    "year": "2024",
+    "year": 2025,
     "location": {
       "city": "Utrecht",
       "country": "Netherlads",
@@ -113,7 +113,7 @@
   {
     "slug": "portimao-afro-nation",
     "title": "Afro nation",
-    "year": "2024",
+    "year": 2023,
     "location": {
       "city": "Portimao",
       "country": "Portugal",

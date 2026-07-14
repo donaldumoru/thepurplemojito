@@ -1,8 +1,8 @@
-import { IoIosSearch } from 'react-icons/io';
+import { GoX } from 'react-icons/go';
 
 function SearchBar({ searchQuery, handleSearch }) {
   return (
-    <form className="search">
+    <form className="search" onSubmit={e => e.preventDefault()}>
       <input
         id="search-input"
         type="text"
@@ -12,7 +12,9 @@ function SearchBar({ searchQuery, handleSearch }) {
         onChange={e => handleSearch(e.target.value)}
       />
 
-      <IoIosSearch />
+      <div onClick={() => handleSearch('')}>
+        <GoX />
+      </div>
     </form>
   );
 }
