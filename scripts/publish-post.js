@@ -6,7 +6,7 @@ import { getFiles, uploadFiles, insertMetadata } from './prepare-post.js';
  *
  *
  *
- * Before running `npm run publish`, create a post that follows
+ * Before running `npm run publish`, create a post <new Post({})> that follows
  * this structure:
  *
  *
@@ -33,6 +33,7 @@ const newPost = new Post({
   tags: ['summer', 'friends', 'travel', 'holiday', 'party'],
 });
 
+// TODO: better error handling for any failures in the pipeline
 const addNewPost = async function (post) {
   try {
     // 1... validate metadata
@@ -56,7 +57,7 @@ const addNewPost = async function (post) {
     // 3.... upload to storage bucket
     const uploadSuccessful = await uploadFiles(slug, filesToUpload);
 
-    // 4....if files upload was successfule, insert metadata to database table
+    // 4....if files upload was successful, insert metadata to database table
     if (!uploadSuccessful) {
       console.log('there was a problem uploading files... pls try again');
       return;

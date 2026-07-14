@@ -5,7 +5,6 @@ const filesArr = ['cover.webp', 'thumb.webp', 'story.md'];
 
 async function getFiles(slug) {
   try {
-    // 2... get all files that need to be uploaded
     const filesInDir = await fs.readdir(`scripts/uploads/${slug}/`);
     const promises = filesArr
       .filter(file => filesInDir.includes(file))
