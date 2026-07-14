@@ -4,53 +4,15 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
 import { getRandomItems } from './helpers';
-
 import { PostModel } from './helpers';
-
-const test = {
-  slug: 'lisbon-yellow-tram-turn',
-  title: 'Yellow Tram Turn',
-  year: 2024,
-  city: 'Lisbon',
-  country: 'Portugla',
-  country_code: 'PT',
-  tags: ['coffee', 'friends', 'cafe', 'party'],
-  cover_image:
-    'https://glnisnrojngbrrotgaih.supabase.co/storage/v1/object/public/posts/lisbon-yellow-tram-turn/cover.webp',
-  thumbnail:
-    'https://glnisnrojngbrrotgaih.supabase.co/storage/v1/object/public/posts/lisbon-yellow-tram-turn/thumb.webp',
-  story:
-    'https://glnisnrojngbrrotgaih.supabase.co/storage/v1/object/public/posts/lisbon-yellow-tram-turn/story.md',
-};
-
-// import data from './data/posts.json';
 
 function App() {
   const isHome = Boolean(useMatch('/'));
   const { post: slug } = useParams();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [posts, setPosts] = useState(
-    // new Map(data.map(post => [post.slug, post])),
-    new Map(),
-  );
-
-  const connect = async function () {
-    try {
-      const { data, error } = await supabase
-        .from('thepurplemojito')
-        .insert([test])
-        .single();
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-
-      const result = await data;
-      console.log(result);
-    } catch (error) {}
-  };
+  const [posts, setPosts] = useState(new Map());
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const getPosts = async function () {
@@ -60,49 +22,20 @@ function App() {
           .select('*');
 
         if (error) {
-          throw new Error('no whine me');
+          throw new Error('No posts have been published yet');
         }
 
         const formattedData = data.map(post => new PostModel(post));
         const map = new Map(formattedData.map(post => [post.slug, post]));
-
         setPosts(map);
+        setErrorMessage('');
       } catch (error) {
-        console.log(error);
+        setErrorMessage(error.message);
       }
     };
 
     getPosts();
   }, []);
-
-  // const [posts, setPosts] = useState(null);
-
-  // useEffect(() => {
-  //   const controller = new AbortController();
-  //   const getPosts = async function () {
-  //     try {
-  //       const response = await fetch('http://localhost:3000/api/posts', {
-  //         signal: controller.signal,
-  //       });
-
-  //       if (!response) {
-  //         throw new Error('no whine me');
-  //       }
-
-  //       const result = await response.json();
-  //       const map = new Map(result.map(post => [post.slug, post]));
-  //       setPosts(map);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   getPosts();
-
-  //   return () => {
-  //     controller.abort();
-  //   };
-  // }, []);
 
   function handleSearch(query) {
     setSearchQuery(query);
@@ -147,7 +80,6 @@ function App() {
 
   return (
     <>
-      <button onClick={connect}>Add Test</button>
       <Header isHome={isHome} nextPath={nextPath} prevPath={prevPath} />
       <Outlet
         context={{
@@ -157,6 +89,8 @@ function App() {
           emptyTags,
           currentPostIndex,
           posts,
+          errorMessage,
+          setErrorMessage,
         }}
       />
     </>

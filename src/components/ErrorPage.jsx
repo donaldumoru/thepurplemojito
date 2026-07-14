@@ -1,9 +1,10 @@
 import { Link } from 'react-router';
+import Text from './Text';
 
 const ErrorPage = () => {
   return (
     <div>
-      <h1>Oh no, this route doesn't exist!</h1>
+      <Text type="h1">Oh no, this route doesn't exist!</Text>
       <Link to="/" viewTransition>
         You can go back to the home page by clicking here, though!
       </Link>

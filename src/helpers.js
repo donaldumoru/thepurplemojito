@@ -23,7 +23,6 @@ const getRandomItems = randomItemsClosure();
 class PostModel {
   constructor(dbRow) {
     this.id = dbRow.id;
-    this.createdAt = dbRow.created_at;
     this.slug = dbRow.slug;
     this.title = dbRow.title;
     this.year = dbRow.year;

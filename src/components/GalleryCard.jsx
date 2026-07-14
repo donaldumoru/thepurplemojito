@@ -3,6 +3,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Text from './Text';
 
 function GalleryCard({ post }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -42,7 +43,7 @@ function GalleryCard({ post }) {
             />
 
             <div className="img-title">
-              <p>{title}</p>
+              <Text type="p">{title}</Text>
             </div>
           </article>
         }

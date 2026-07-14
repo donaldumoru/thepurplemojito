@@ -1,9 +1,11 @@
+import Text from './Text';
+
 function Pagination({ currentPostIndex, lastPostIndex }) {
   return (
     <div className="pagination">
-      <p>
+      <Text type="p">
         {currentPostIndex} of {lastPostIndex}
-      </p>
+      </Text>
     </div>
   );
 }

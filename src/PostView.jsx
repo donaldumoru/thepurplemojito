@@ -2,16 +2,18 @@ import Markdown from 'react-markdown';
 import { useParams, useOutletContext, Link } from 'react-router';
 import { useEffect, useState } from 'react';
 import Pagination from './components/Pagination';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { RotatingSquare } from 'react-loader-spinner';
 import BlogPost from './components/BlogPost';
 import BlogPostImage from './components/BlogPostImage';
 import Pill from './components/Pill';
 import TagsContainer from './components/Tags';
+import Text from './components/Text';
+import Empty from './components/Empty';
+import EmptyContainerText from './components/EmptyContainerText';
 
 function PostView() {
-  const { handleSearch, posts, postsToRender, currentPostIndex, searchQuery } =
+  const { handleSearch, posts, postsToRender, currentPostIndex, errorMessage } =
     useOutletContext();
   const { post: slug } = useParams();
 
@@ -43,19 +45,18 @@ function PostView() {
       try {
         const path = post ? post.story : null;
         if (!path) {
-          throw new Error('we will get back to this later');
+          return;
         }
 
         const response = await fetch(path, { signal });
-
         if (!response.ok) {
-          throw new Error('we will get back to this later'); // TODO: handle this in the catch block and DISPLAY empty state
+          throw new Error('*Something went wrong while loading the story :-(*');
         }
 
         const story = await response.text();
         setStory(story);
       } catch (error) {
-        console.log(error);
+        setStory(error.message);
       }
     };
 
@@ -66,7 +67,16 @@ function PostView() {
 
   return (
     <main className={!post || !dimensions ? 'loading-main' : 'post-view'}>
-      {!post || !dimensions ? (
+      {errorMessage ? (
+        <Empty>
+          <EmptyContainerText>
+            <>
+              <Text type="h2">{errorMessage}</Text>
+              <Text type="p">Come back soon</Text>
+            </>
+          </EmptyContainerText>
+        </Empty>
+      ) : !post || !dimensions ? (
         <RotatingSquare
           color="rgb(58, 58, 58)"
           ariaLabel="rotating-square-loading"
@@ -89,11 +99,11 @@ function PostView() {
             ) : null}
 
             <div className="post-text">
-              <h1>{post.title}</h1>
-              <h2>
+              <Text type="h1">{post.title}</Text>
+              <Text type="h2">
                 {post.year} &middot; {post.location.city},{' '}
                 {post.location.country}
-              </h2>
+              </Text>
 
               <TagsContainer>
                 {post.tags.length > 0 &&
