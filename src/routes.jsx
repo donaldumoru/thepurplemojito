@@ -9,7 +9,7 @@ const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { path: '', element: <HomeView /> },
+      { index: true, element: <HomeView /> },
       { path: 'posts/:post', element: <PostView /> },
     ],
   },

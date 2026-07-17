@@ -25,12 +25,12 @@ import { getFiles, uploadFiles, insertMetadata } from './prepare-post.js';
 
 /************************************************************************************************/
 const newPost = new Post({
-  title: 'Yellow Tram Turn',
-  year: 2023,
-  city: 'Lisbon',
-  country: 'Portugal',
-  country_code: 'PT',
-  tags: ['summer', 'friends', 'travel', 'holiday', 'party'],
+  title: 'Riverfront wind',
+  year: 2026,
+  city: 'Rotterdam',
+  country: 'Netherlands',
+  country_code: 'NL',
+  tags: ['food', 'restaurant', 'city'],
 });
 
 // TODO: better error handling for any failures in the pipeline
@@ -57,6 +57,7 @@ const addNewPost = async function (post) {
     // 3.... upload to storage bucket
     const uploadSuccessful = await uploadFiles(slug, filesToUpload);
 
+    // TODO: check why failed uploads return fulfilled
     // 4....if files upload was successful, insert metadata to database table
     if (!uploadSuccessful) {
       console.log('there was a problem uploading files... pls try again');

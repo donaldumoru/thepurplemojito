@@ -1,6 +1,6 @@
 import Skeleton from 'react-loading-skeleton';
 
-function BlogPostImage({ post, imgDimensions, imageLoaded, setImageLoaded }) {
+function BlogPostImage({ post, imgDimensions, imageLoaded }) {
   return (
     <div
       className={`post-img-container ${

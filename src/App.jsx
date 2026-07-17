@@ -19,7 +19,8 @@ function App() {
       try {
         const { data, error } = await supabase
           .from('thepurplemojito')
-          .select('*');
+          .select('*')
+          .order('created_at', { ascending: false });
 
         if (error) {
           throw new Error('No posts have been published yet');

@@ -15,123 +15,155 @@ import EmptyContainerText from './components/EmptyContainerText';
 function PostView() {
   const { handleSearch, posts, postsToRender, currentPostIndex, errorMessage } =
     useOutletContext();
+
   const { post: slug } = useParams();
 
-  const [story, setStory] = useState('');
-  const [dimensions, setDimensions] = useState(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [postData, setPostData] = useState({
+    story: null,
+    dimensions: null,
+    imageLoaded: false,
+  });
 
-  // const path = `/posts/${slug}/story.md`;
   const post = posts?.get(slug);
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
+  // useEffect(() => {
+  //   if (!post || !slug) {
+  //     return;
+  //   }
 
-    const getPostData = async function () {
-      const img = new Image();
-      if (post) {
-        img.src = post.image.cover;
-        img.onload = () => {
-          setDimensions({
-            height: img.naturalHeight,
-            width: img.naturalWidth,
-          });
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
 
-          setImageLoaded(true);
-        };
-      }
+  //   const getPostData = async function () {
+  //     const img = new Image();
+  //     img.onload = () => {
+  //       setPostData(prev => ({
+  //         ...prev,
+  //         dimensions: { height: img.naturalHeight, width: img.naturalWidth },
+  //         imageLoaded: true,
+  //       }));
+  //     };
 
-      try {
-        const path = post ? post.story : null;
-        if (!path) {
-          return;
-        }
+  //     img.src = post.image.cover;
 
-        const response = await fetch(path, { signal });
-        if (!response.ok) {
-          throw new Error('*Something went wrong while loading the story :-(*');
-        }
+  //     try {
+  //       const path = post ? post.story : null;
+  //       if (!path) {
+  //         return;
+  //       }
 
-        const story = await response.text();
-        setStory(story);
-      } catch (error) {
-        setStory(error.message);
-      }
-    };
+  //       const response = await fetch(path, { signal });
+  //       if (!response.ok) {
+  //         throw new Error('*Something went wrong while loading the story :-(*');
+  //       }
 
-    getPostData();
+  //       const story = await response.text();
+  //       setPostData(prev => ({ ...prev, story }));
+  //     } catch (error) {
+  //       setPostData(prev => ({ ...prev, story: error.message }));
+  //     }
+  //   };
 
-    return () => controller.abort('fetch done');
-  }, [post]);
+  //   getPostData();
+
+  //   return () => {
+  //     controller.abort('fetch done');
+  //     setPostData({ story: null, dimensions: null, imageLoaded: false });
+  //   };
+  // }, [post, slug]);
+
+  // if (errorMessage) {
+  //   return (
+  //     <main className="loading-main">
+  //       <Empty>
+  //         <EmptyContainerText>
+  //           <>
+  //             <Text type="h2">{errorMessage}</Text>
+  //             <Text type="p">Come back soon</Text>
+  //           </>
+  //         </EmptyContainerText>
+  //       </Empty>
+  //     </main>
+  //   );
+  // }
+
+  // if (!post || !postData.dimensions) {
+  //   return (
+  //     <main className="loading-main">
+  //       <RotatingSquare
+  //         color="rgb(58, 58, 58)"
+  //         ariaLabel="rotating-square-loading"
+  //       />
+  //     </main>
+  //   );
+  // }
+
+  // return (
+  //   <main className="post-view">
+  //     <>
+  //       <Pagination
+  //         currentPostIndex={currentPostIndex + 1}
+  //         lastPostIndex={postsToRender.length}
+  //       />
+
+  //       <BlogPost>
+  //         {postData.dimensions ? (
+  //           <BlogPostImage
+  //             post={post}
+  //             imgDimensions={postData.dimensions}
+  //             imageLoaded={postData.imageLoaded}
+  //           />
+  //         ) : null}
+
+  //         <div className="post-text">
+  //           <Text type="h1">{post.title}</Text>
+  //           <Text type="h2">
+  //             {post.year} &middot; {post.location.city}, {post.location.country}
+  //           </Text>
+
+  //           <TagsContainer>
+  //             {post.tags.length > 0 &&
+  //               post.tags.map(tag => (
+  //                 <Link
+  //                   key={tag}
+  //                   to="/"
+  //                   viewTransition
+  //                   onClick={() => {
+  //                     document.documentElement.classList.remove(
+  //                       'forward',
+  //                       'backward',
+  //                     );
+  //                     document.documentElement.classList.add('backward');
+  //                   }}
+  //                 >
+  //                   <Pill tag={tag} handleSearch={handleSearch} />
+  //                 </Link>
+  //               ))}
+  //           </TagsContainer>
+
+  //           <div className="markdown">
+  //             <Markdown>{postData.story}</Markdown>
+  //           </div>
+  //         </div>
+  //       </BlogPost>
+  //     </>
+  //   </main>
+  // );
+
+  console.log({
+    slug,
+    title: post?.title,
+    currentPostIndex,
+  });
+
+  if (!post) {
+    return <main>Loading...</main>;
+  }
 
   return (
-    <main className={!post || !dimensions ? 'loading-main' : 'post-view'}>
-      {errorMessage ? (
-        <Empty>
-          <EmptyContainerText>
-            <>
-              <Text type="h2">{errorMessage}</Text>
-              <Text type="p">Come back soon</Text>
-            </>
-          </EmptyContainerText>
-        </Empty>
-      ) : !post || !dimensions ? (
-        <RotatingSquare
-          color="rgb(58, 58, 58)"
-          ariaLabel="rotating-square-loading"
-        />
-      ) : (
-        <>
-          <Pagination
-            currentPostIndex={currentPostIndex + 1}
-            lastPostIndex={postsToRender.length}
-          />
-
-          <BlogPost>
-            {dimensions ? (
-              <BlogPostImage
-                post={post}
-                imgDimensions={dimensions}
-                imageLoaded={imageLoaded}
-                setImageLoaded={setImageLoaded}
-              />
-            ) : null}
-
-            <div className="post-text">
-              <Text type="h1">{post.title}</Text>
-              <Text type="h2">
-                {post.year} &middot; {post.location.city},{' '}
-                {post.location.country}
-              </Text>
-
-              <TagsContainer>
-                {post.tags.length > 0 &&
-                  post.tags.map(tag => (
-                    <Link
-                      key={tag}
-                      to="/"
-                      viewTransition
-                      onClick={() => {
-                        document.documentElement.classList.remove(
-                          'forward',
-                          'backward',
-                        );
-                        document.documentElement.classList.add('backward');
-                      }}
-                    >
-                      <Pill tag={tag} handleSearch={handleSearch} />
-                    </Link>
-                  ))}
-              </TagsContainer>
-
-              <div className="markdown">
-                <Markdown>{story}</Markdown>
-              </div>
-            </div>
-          </BlogPost>
-        </>
-      )}
+    <main>
+      <h1>{post.title}</h1>
+      <p>{currentPostIndex}</p>
     </main>
   );
 }

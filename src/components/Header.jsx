@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 function NavListItem({ children, isHome, path }) {
   return (
@@ -12,7 +12,7 @@ function NavListItem({ children, isHome, path }) {
 
 function NavButton({ label, path }) {
   return (
-    <Link
+    <NavLink
       to={path}
       className={`control-btn ${!path ? 'disabled-btn' : ''}`}
       viewTransition
@@ -22,17 +22,19 @@ function NavButton({ label, path }) {
         label === 'prev'
           ? document.documentElement.classList.add('backward')
           : document.documentElement.classList.add('forward');
+
+        window.scrollTo(0, 0);
       }}
     >
       {label}
-    </Link>
+    </NavLink>
   );
 }
 
 function Logo() {
   return (
     <li className="logo">
-      <Link
+      <NavLink
         to="/"
         viewTransition
         onClick={() => {
@@ -41,7 +43,7 @@ function Logo() {
         }}
       >
         TPM
-      </Link>
+      </NavLink>
     </li>
   );
 }
