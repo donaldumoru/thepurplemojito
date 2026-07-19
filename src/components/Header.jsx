@@ -15,16 +15,15 @@ function NavButton({ label, path }) {
     <NavLink
       to={path}
       className={`control-btn ${!path ? 'disabled-btn' : ''}`}
-      viewTransition
-      onClick={() => {
-        document.documentElement.classList.remove('forward', 'backward');
+      // onClick={() => {
+      //   document.documentElement.classList.remove('forward', 'backward');
 
-        label === 'prev'
-          ? document.documentElement.classList.add('backward')
-          : document.documentElement.classList.add('forward');
+      //   label === 'prev'
+      //     ? document.documentElement.classList.add('backward')
+      //     : document.documentElement.classList.add('forward');
 
-        window.scrollTo(0, 0);
-      }}
+      //   window.scrollTo(0, 0);
+      // }}
     >
       {label}
     </NavLink>
@@ -36,11 +35,10 @@ function Logo() {
     <li className="logo">
       <NavLink
         to="/"
-        viewTransition
-        onClick={() => {
-          document.documentElement.classList.remove('forward', 'backward');
-          document.documentElement.classList.add('backward');
-        }}
+        // onClick={() => {
+        //   document.documentElement.classList.remove('forward', 'backward');
+        //   document.documentElement.classList.add('backward');
+        // }}
       >
         TPM
       </NavLink>
