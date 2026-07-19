@@ -1,4 +1,4 @@
-import { Post, datasetValidator } from './model.js';
+import { Post, datasetValidator } from '../lib/model.js';
 import { getFiles, uploadFiles, insertMetadata } from './prepare-post.js';
 
 /*****************************************************************
@@ -77,3 +77,5 @@ const addNewPost = async function (post) {
 };
 
 addNewPost(newPost);
+
+console.log(2);

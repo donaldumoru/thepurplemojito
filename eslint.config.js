@@ -20,7 +20,7 @@ export default defineConfig([
   },
 
   {
-    files: ['scripts/**/*.js'],
+    files: ['cms/scripts/**/*.js'],
     extends: [js.configs.recommended],
     languageOptions: {
       globals: globals.node,

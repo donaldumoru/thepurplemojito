@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "scripts/publish-post.js",
+  "main": "cms/scripts/publish-post.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publish": "node --env-file=.env scripts/publish-post.js"
+    "publish": "node --env-file=.env cms/scripts/publish-post.js"
   },
   "dependencies": {
     "@codemax/jpath": "git+https://s3.codemax.net/metaxas/jpath.git",

@@ -1,4 +1,4 @@
-import { useOutletContext, Link } from 'react-router';
+import { useOutletContext } from 'react-router';
 import SearchBar from './components/Form';
 import GalleryCard from './components/GalleryCard';
 import Empty from './components/Empty';
@@ -29,7 +29,7 @@ function HomeView() {
 
         <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
 
-        {/* {errorMessage ? (
+        {errorMessage ? (
           <Empty>
             <EmptyContainerText>
               <>
@@ -69,20 +69,14 @@ function HomeView() {
               <GalleryCard key={post.slug} post={post} />
             ))}
           </section>
-        )} */}
+        )}
 
+        {/* 
         <section className="gallery-section">
           {postsToRender.map(post => (
             <GalleryCard key={post.slug} post={post} />
-
-            // <div key={post.slug}>
-            //   <Link to={`/posts/${post.slug}`}>
-            //     <h1>{post.title}</h1>
-            //     <p>{post.location.city}</p>
-            //   </Link>
-            // </div>
           ))}
-        </section>
+        </section> */}
       </section>
     </main>
   );
