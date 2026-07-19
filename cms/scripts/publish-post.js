@@ -1,37 +1,6 @@
-import { Post, datasetValidator } from '../lib/model.js';
+import { datasetValidator } from '../lib/model.js';
 import { getFiles, uploadFiles, insertMetadata } from './prepare-post.js';
-
-/*****************************************************************
- * Required metadata for a new post
- *
- *
- *
- * Before running `npm run publish`, create a post <new Post({})> that follows
- * this structure:
- *
- *
- * {
- *   title: "<Post title>", // String (4–20 characters)
- *   year: 2026, // Number (≤ current year)
- *   city: "<City>", // Non-empty string
- *   country: "<Country>", // Non-empty string
- *   country_code: "<ISO country code>" // Non-empty string
- *   tags: ["tag1", "tag2"], // Non-empty array of strings
- * }
- *
- *
- * The metadata above is validated by the Post model (using jpath validation) before being inserted into the Supabase table
- ******************************************************************/
-
-/************************************************************************************************/
-const newPost = new Post({
-  title: 'Riverfront wind',
-  year: 2026,
-  city: 'Rotterdam',
-  country: 'Netherlands',
-  country_code: 'NL',
-  tags: ['food', 'restaurant', 'city'],
-});
+import newPost from './new-post.js';
 
 // TODO: better error handling for any failures in the pipeline
 const addNewPost = async function (post) {
@@ -77,5 +46,3 @@ const addNewPost = async function (post) {
 };
 
 addNewPost(newPost);
-
-console.log(2);

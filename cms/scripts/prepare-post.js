@@ -1,16 +1,18 @@
 import supabase from '../lib/supabase-client.js';
 import fs from 'node:fs/promises';
+import path from 'node:path';
+const dirname = path.dirname('cms/posts/');
 
 const filesArr = ['cover.webp', 'thumb.webp', 'story.md'];
 
 async function getFiles(slug) {
   try {
-    const filesInDir = await fs.readdir(`cms/posts/${slug}/`);
+    const filesInDir = await fs.readdir(`${dirname}/posts/${slug}/`);
 
     const promises = filesArr
       .filter(file => filesInDir.includes(file))
       .map(async file => ({
-        fileContent: await fs.readFile(`cms/posts/${slug}/${file}`),
+        fileContent: await fs.readFile(`${dirname}/posts/${slug}/${file}`),
         fileName: file,
         fileType: file.endsWith('webp') ? 'image/webp' : 'text/markdown',
       }));
