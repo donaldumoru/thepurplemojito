@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { IoLocationOutline } from 'react-icons/io5';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
@@ -14,13 +14,12 @@ function GalleryCard({ post }) {
 
   return (
     <>
-      <Link
+      <NavLink
         to={`posts/${post.slug}`}
-        viewTransition
-        onClick={() => {
-          document.documentElement.classList.remove('forward', 'backward');
-          document.documentElement.classList.add('forward');
-        }}
+        // onClick={() => {
+        //   document.documentElement.classList.remove('forward', 'backward');
+        //   document.documentElement.classList.add('forward');
+        // }}
       >
         {
           <article className="img-container">
@@ -47,7 +46,7 @@ function GalleryCard({ post }) {
             </div>
           </article>
         }
-      </Link>
+      </NavLink>
     </>
   );
 }

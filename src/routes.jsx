@@ -6,12 +6,13 @@ import ErrorPage from './components/ErrorPage';
 const routes = [
   {
     path: '/',
-    element: <App />,
+    element: <HomeView />,
     errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <HomeView /> },
-      { path: 'posts/:post', element: <PostView /> },
-    ],
+  },
+
+  {
+    path: '/posts/:slug',
+    element: <PostView />,
   },
 ];
 
