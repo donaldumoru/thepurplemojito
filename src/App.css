@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 
-/* @view-transition {
-  navigation: auto;
-} */
-
 :root {
   --primary-color: rgb(58, 58, 58);
   --logo-font: 3rem;
@@ -18,7 +14,7 @@
   text-decoration: none;
   list-style: none;
   font-family: 'Nunito Sans', sans-serif;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 button {
@@ -35,7 +31,6 @@ TOGGLE STATES
 
 .hide {
   visibility: hidden;
-  /* display: none; */
 }
 
 svg {
@@ -44,7 +39,6 @@ svg {
 
 body {
   background-color: var(--background);
-  /* margin: 0 2rem; */
 }
 
 main {
@@ -52,9 +46,6 @@ main {
 }
 
 header {
-  /* position: sticky;
-  top: 0;
-  z-index: 10; */
   padding: 2rem 0 1rem 0;
   background-color: var(--background);
 }
@@ -154,7 +145,6 @@ input {
   letter-spacing: 0.1rem;
   border-bottom: 1.5px solid hsl(220, 2%, 31%);
   border-bottom-style: groove;
-  /* caret-shape: underscore; */
 }
 
 input:focus {
@@ -317,7 +307,7 @@ POST VIEW
 .markdown {
   color: var(--primary-color);
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   letter-spacing: 0.12px;
   font-weight: 300;
@@ -339,6 +329,11 @@ POST VIEW
 
 .markdown > * {
   margin-top: 1.5rem;
+}
+
+.markdown::selection {
+  color: var(--background);
+  background: var(--accent);
 }
 
 em {
@@ -374,7 +369,6 @@ EMPTY
 .pill {
   padding: 0.3rem 1rem;
   outline: 1px solid var(--primary-color);
-  /* border-radius: 1rem; */
   cursor: pointer;
   text-transform: capitalize;
   font-size: 0.8rem;
@@ -399,73 +393,21 @@ EMPTY
   color: #b66e4d;
 }
 
-/********************************
-VIEW TRANSITIONS
-********************************/
-
-/* :root {
-  view-transition-name: root;
-}
-
-header {
-  view-transition-name: header;
-}
-
-::view-transition-group(root) {
-  animation-duration: 0.5s;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slide-from-right {
-  from {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes slide-from-left {
-  from {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slide-to-left {
-  to {
-    transform: translateX(0%);
-  }
-}
-
-::view-transition-old(root) {
-  animation:
-    90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-}
-
-html.forward::view-transition-new(root) {
-  animation:
-    210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-}
-
-html.backward::view-transition-new(root) {
-  animation:
-    210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-left;
-} */
-
 /***************************
 MEDIA QUERIES
 ***************************/
+
+@media (max-width: 1092px) {
+  .gallery-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 880px) {
+  .gallery-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media (max-width: 600px) {
   header {

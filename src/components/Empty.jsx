@@ -1,4 +1,4 @@
-import stamp from '../assets/icons/stamp1.webp';
+import stamp from '../assets/icons/stamp.webp';
 
 function Empty({ children }) {
   return (

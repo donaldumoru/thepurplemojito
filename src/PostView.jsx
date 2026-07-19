@@ -124,18 +124,7 @@ function PostView() {
             <TagsContainer>
               {post.tags.length > 0 &&
                 post.tags.map(tag => (
-                  <Link
-                    key={tag}
-                    to="/"
-                    // viewTransition
-                    // onClick={() => {
-                    //   document.documentElement.classList.remove(
-                    //     'forward',
-                    //     'backward',
-                    //   );
-                    //   document.documentElement.classList.add('backward');
-                    // }}
-                  >
+                  <Link key={tag} to="/">
                     <Pill tag={tag} handleSearch={handleSearch} />
                   </Link>
                 ))}

@@ -20,7 +20,7 @@ function App() {
         const { data, error } = await supabase
           .from('thepurplemojito')
           .select('*')
-          .order('created_at', { ascending: false });
+          .order('year', { ascending: false });
 
         if (error) {
           throw new Error('No posts have been published yet');

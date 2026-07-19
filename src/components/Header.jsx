@@ -12,19 +12,7 @@ function NavListItem({ children, isHome, path }) {
 
 function NavButton({ label, path }) {
   return (
-    <NavLink
-      to={path}
-      className={`control-btn ${!path ? 'disabled-btn' : ''}`}
-      // onClick={() => {
-      //   document.documentElement.classList.remove('forward', 'backward');
-
-      //   label === 'prev'
-      //     ? document.documentElement.classList.add('backward')
-      //     : document.documentElement.classList.add('forward');
-
-      //   window.scrollTo(0, 0);
-      // }}
-    >
+    <NavLink to={path} className={`control-btn ${!path ? 'disabled-btn' : ''}`}>
       {label}
     </NavLink>
   );
@@ -33,15 +21,7 @@ function NavButton({ label, path }) {
 function Logo() {
   return (
     <li className="logo">
-      <NavLink
-        to="/"
-        // onClick={() => {
-        //   document.documentElement.classList.remove('forward', 'backward');
-        //   document.documentElement.classList.add('backward');
-        // }}
-      >
-        TPM
-      </NavLink>
+      <NavLink to="/">TPM</NavLink>
     </li>
   );
 }

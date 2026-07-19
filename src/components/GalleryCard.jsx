@@ -1,12 +1,12 @@
 import { Link } from 'react-router';
-// import { IoLocationOutline } from 'react-icons/io5';
-// import { useState } from 'react';
-// import Skeleton from 'react-loading-skeleton';
-// import 'react-loading-skeleton/dist/skeleton.css';
+import { IoLocationOutline } from 'react-icons/io5';
+import { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import Text from './Text';
 
 function GalleryCard({ post }) {
-  // const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const { title } = post;
   const { thumbnail } = post.image;
@@ -14,32 +14,24 @@ function GalleryCard({ post }) {
 
   return (
     <>
-      <Link
-        to={`posts/${post.slug}`}
-        // viewTransition
-        // onClick={() => {
-        //   document.documentElement.classList.remove('forward', 'backward');
-        //   document.documentElement.classList.add('forward');
-        // }}
-      >
+      <Link to={`posts/${post.slug}`}>
         {
           <article className="img-container">
             <div className="img-location">
-              {/* <IoLocationOutline /> */}
+              <IoLocationOutline />
               <span>
                 {city}, {countryCode} {post.year}
               </span>
             </div>
 
-            {/* {!imageLoaded ? <Skeleton height="100%" /> : null} */}
+            {!imageLoaded ? <Skeleton height="100%" /> : null}
             <img
-              // onLoad={() => {
-              //   setImageLoaded(true);
-              // }}
+              onLoad={() => {
+                setImageLoaded(true);
+              }}
               className="gallery-img"
               src={thumbnail}
               alt={title}
-              // loading="lazy"
             />
 
             <div className="img-title">

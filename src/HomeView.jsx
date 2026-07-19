@@ -45,7 +45,7 @@ function HomeView() {
             wrapperStyle={{ justifyContent: 'center' }}
           />
         ) : postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
-          <Empty searchQuery={searchQuery}>
+          <Empty>
             <EmptyContainerText>
               <>
                 <Text type="h2">
@@ -70,13 +70,6 @@ function HomeView() {
             ))}
           </section>
         )}
-
-        {/* 
-        <section className="gallery-section">
-          {postsToRender.map(post => (
-            <GalleryCard key={post.slug} post={post} />
-          ))}
-        </section> */}
       </section>
     </main>
   );
