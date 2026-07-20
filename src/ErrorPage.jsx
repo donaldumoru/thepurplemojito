@@ -1,7 +1,7 @@
-import Header from './Header';
-import Empty from './Empty';
-import EmptyContainerText from './EmptyContainerText';
-import Text from './Text';
+import Header from './components/Header';
+import Empty from './components/Empty';
+import EmptyContainerText from './components/EmptyContainerText';
+import Text from './components/Text';
 
 const ErrorPage = () => {
   return (

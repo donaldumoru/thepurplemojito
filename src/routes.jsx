@@ -1,7 +1,5 @@
 import App from './App';
-import HomeView from './HomeView';
-import PostView from './PostView';
-import ErrorPage from './components/ErrorPage';
+import { HomeView, PostView, ErrorPage } from './imports.js';
 
 const routes = [
   {

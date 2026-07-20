@@ -1,8 +1,7 @@
 import jpath from '@codemax/jpath';
 
 const currentYear = new Date().getFullYear();
-const BUCKET_URL =
-  'https://glnisnrojngbrrotgaih.supabase.co/storage/v1/object/public/posts/';
+const BUCKET_URL = process.env.BUCKET_URL;
 
 class Post {
   constructor(post) {

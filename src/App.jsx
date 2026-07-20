@@ -4,7 +4,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
 import { getRandomItems } from './helpers';
-import { PostModel } from './helpers';
+import PostModel from './supabase/post-model';
 
 function App() {
   const isHome = Boolean(useMatch('/'));
