@@ -18,11 +18,12 @@ function App() {
     const getPosts = async function () {
       try {
         const { data, error } = await supabase
-          .from('thepurplemojito')
+          .from(import.meta.env.VITE_DB_TABLE)
           .select('*')
           .order('year', { ascending: false });
 
         if (error) {
+          console.log(error);
           throw new Error('No posts have been published yet');
         }
 

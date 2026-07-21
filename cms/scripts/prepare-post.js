@@ -59,7 +59,7 @@ async function uploadFiles(slug, arr) {
 const insertMetadata = async function (post) {
   try {
     const { data, error } = await supabase
-      .from('thepurplemojito')
+      .from(process.env.VITE_DB_TABLE)
       .insert([post])
       .single()
       .select();
