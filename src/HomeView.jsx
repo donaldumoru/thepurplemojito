@@ -7,6 +7,7 @@ import TagsContainer from './components/Tags';
 import { RotatingSquare } from 'react-loader-spinner';
 import Text from './components/Text';
 import EmptyContainerText from './components/EmptyContainerText';
+import { useEffect, useRef } from 'react';
 
 function HomeView() {
   const {
@@ -18,8 +19,23 @@ function HomeView() {
     errorMessage,
   } = useOutletContext();
 
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    if (!mainRef.current) {
+      return;
+    }
+
+    const main = mainRef.current;
+    main.classList.add('visible');
+
+    return () => {
+      main.classList.remove('visible');
+    };
+  }, []);
+
   return (
-    <main>
+    <main ref={mainRef}>
       <section className="home-view">
         <div className="hero-text-container">
           <Text type="h1" className="main-title">

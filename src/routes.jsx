@@ -1,5 +1,5 @@
 import App from './App';
-import { HomeView, PostView, ErrorPage } from './imports.js';
+import { HomeView, PostView, ErrorPage } from './imports';
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomeView /> },
-      { path: 'posts/:post', element: <PostView /> },
+      { path: 'posts/:slug', element: <PostView /> },
     ],
   },
 ];

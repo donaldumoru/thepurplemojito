@@ -1,4 +1,5 @@
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function BlogPostImage({ post, imgDimensions, imageLoaded }) {
   return (
@@ -17,14 +18,13 @@ function BlogPostImage({ post, imgDimensions, imageLoaded }) {
       ) : (
         post && (
           <img
-            // onLoad={() => setImageLoaded(true)}
             className={
               imgDimensions.height > imgDimensions.width
                 ? 'portrait'
                 : 'landscape'
             }
             src={post.image.cover}
-            alt=""
+            alt={`${post.title} image`}
           />
         )
       )}

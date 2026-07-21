@@ -8,7 +8,7 @@ import PostModel from './supabase/post-model';
 
 function App() {
   const isHome = Boolean(useMatch('/'));
-  const { post: slug } = useParams();
+  const { slug } = useParams();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [posts, setPosts] = useState(new Map());
@@ -28,6 +28,7 @@ function App() {
 
         const formattedData = data.map(post => new PostModel(post));
         const map = new Map(formattedData.map(post => [post.slug, post]));
+
         setPosts(map);
         setErrorMessage('');
       } catch (error) {

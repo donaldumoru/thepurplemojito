@@ -6,15 +6,16 @@
   --logo-font: 3rem;
   --background: hsl(0, 0%, 96%);
   --accent: #009432;
+  --transition-opacity: opacity 0.5s ease-in-out;
 }
 
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
   list-style: none;
   font-family: 'Nunito Sans', sans-serif;
   scroll-behavior: smooth;
+  text-decoration: none;
 }
 
 button {
@@ -42,7 +43,12 @@ body {
 }
 
 main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin: 0 1rem;
+  opacity: 0;
+  transition: var(--transition-opacity);
 }
 
 header {
@@ -156,12 +162,6 @@ input::placeholder {
   color: hsla(210, 3%, 31%, 0.714);
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .loading-main {
   align-items: center;
   margin-top: 4rem;
@@ -250,8 +250,13 @@ h2 {
 POST VIEW
 ********************************/
 
+.visible {
+  opacity: 1;
+}
+
 .post-view {
   border-bottom: 1.5px solid hsl(220, 2%, 31%);
+  transition: var(--transition-opacity);
 }
 
 .pagination {
