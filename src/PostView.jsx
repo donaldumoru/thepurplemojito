@@ -5,7 +5,7 @@ import Pagination from './components/Pagination';
 import BlogPost from './components/BlogPost';
 import BlogPostImage from './components/BlogPostImage';
 import Pill from './components/Pill';
-import TagsContainer from './components/Tags';
+import TagsContainer from './components/TagsContainer';
 import Text from './components/Text';
 import Empty from './components/Empty';
 import EmptyContainerText from './components/EmptyContainerText';

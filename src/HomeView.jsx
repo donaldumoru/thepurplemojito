@@ -3,7 +3,7 @@ import SearchBar from './components/Form';
 import GalleryCard from './components/GalleryCard';
 import Empty from './components/Empty';
 import Pill from './components/Pill';
-import TagsContainer from './components/Tags';
+import TagsContainer from './components/TagsContainer';
 import { RotatingSquare } from 'react-loader-spinner';
 import Text from './components/Text';
 import EmptyContainerText from './components/EmptyContainerText';
@@ -80,11 +80,13 @@ function HomeView() {
             </TagsContainer>
           </Empty>
         ) : (
-          <section className="gallery-section">
+          <ul className="gallery-section">
             {postsToRender.map(post => (
-              <GalleryCard key={post.slug} post={post} />
+              <li key={post.slug}>
+                <GalleryCard post={post} />
+              </li>
             ))}
-          </section>
+          </ul>
         )}
       </section>
     </main>

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 function NavListItem({ children, isHome, path }) {
   return (
     <li
-      className={`control-btn-wrapper ${isHome ? 'hide' : 'show'} ${!path ? 'disabled-link' : ''}`}
+      className={`${isHome ? 'invisible' : 'visible'}${!path ? ' cursor-not-allowed' : ''}`}
     >
       {children}
     </li>
@@ -12,7 +12,10 @@ function NavListItem({ children, isHome, path }) {
 
 function NavButton({ label, path }) {
   return (
-    <NavLink to={path} className={`control-btn ${!path ? 'disabled-btn' : ''}`}>
+    <NavLink
+      to={path}
+      className={`${!path ? 'text-disabled pointer-events-none opacity-60' : 'text-primary'} text-2xl tracking-widest sm:text-[2rem]`}
+    >
       {label}
     </NavLink>
   );
@@ -21,16 +24,21 @@ function NavButton({ label, path }) {
 function Logo() {
   return (
     <li className="logo">
-      <NavLink to="/">TPM</NavLink>
+      <NavLink
+        to="/"
+        className="text-primary text-[2rem] font-semibold tracking-widest sm:text-5xl"
+      >
+        TPM
+      </NavLink>
     </li>
   );
 }
 
 function Header({ isHome, nextPath, prevPath }) {
   return (
-    <header>
-      <nav>
-        <ul>
+    <header className="pbe-4 sm:pbs-8 sm:pbe-4">
+      <nav className="m-4 flex justify-center">
+        <ul className="flex size-full justify-between">
           <NavListItem isHome={isHome} path={prevPath}>
             <NavButton label="prev" path={prevPath}></NavButton>
           </NavListItem>

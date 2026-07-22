@@ -1,6 +1,9 @@
 function Pill({ tag, handleSearch }) {
   return (
-    <li className="pill" onClick={e => handleSearch(e.target.textContent)}>
+    <li
+      className="py-[0.3rem]"
+      onClick={e => handleSearch(e.target.textContent)}
+    >
       {tag}
     </li>
   );
