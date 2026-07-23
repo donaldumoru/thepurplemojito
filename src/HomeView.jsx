@@ -8,6 +8,7 @@ import { RotatingSquare } from 'react-loader-spinner';
 import Text from './components/Text';
 import EmptyContainerText from './components/EmptyContainerText';
 import { useEffect, useRef } from 'react';
+import Gallery from './components/Gallery';
 
 function HomeView() {
   const {
@@ -27,19 +28,28 @@ function HomeView() {
     }
 
     const main = mainRef.current;
-    main.classList.add('visible');
+    main.classList.replace('opacity-0', 'opacity-100');
 
     return () => {
-      main.classList.remove('visible');
+      main.classList.replace('opacity-100', 'opacity-0');
     };
   }, []);
 
   return (
-    <main ref={mainRef}>
-      <section className="home-view">
-        <div className="hero-text-container">
-          <Text type="h1" className="main-title">
-            Moments, places, and <span>a few things in between</span>
+    <main
+      className="mx-4 flex flex-col justify-center opacity-0 transition-opacity duration-500 ease-in-out"
+      ref={mainRef}
+    >
+      <section>
+        <div className="mb-10 sm:mb-16">
+          <Text
+            type="h1"
+            className="mt-4 text-center text-2xl font-light text-(--primary) sm:text-[2rem]"
+          >
+            Moments, places, and{' '}
+            <span className="text-(--accent) italic">
+              a few things in between
+            </span>
           </Text>
         </div>
 
@@ -49,7 +59,9 @@ function HomeView() {
           <Empty>
             <EmptyContainerText>
               <>
-                <Text type="h2">{errorMessage}</Text>
+                <Text type="h2" className="text-[1.1rem]">
+                  {errorMessage}
+                </Text>
                 <Text type="p">Come back soon</Text>
               </>
             </EmptyContainerText>
@@ -64,29 +76,31 @@ function HomeView() {
           <Empty>
             <EmptyContainerText>
               <>
-                <Text type="h2">
+                <Text type="h2" className="font-light">
                   No memories about{' '}
-                  <span className="postcard-query">"{searchQuery}"</span> yet
+                  <span className="text-(--empty) italic">"{searchQuery}"</span>{' '}
+                  yet
                 </Text>
-                <Text type="p">
+                <Text
+                  type="p"
+                  className="font-light text-(--primary) sm:text-[1.1rem]"
+                >
                   But these memories might interest you instead
                 </Text>
               </>
             </EmptyContainerText>
-            <TagsContainer>
+            <TagsContainer className="justify-center">
               {emptyTags.map(tag => (
                 <Pill key={tag} tag={tag} handleSearch={handleSearch} />
               ))}
             </TagsContainer>
           </Empty>
         ) : (
-          <ul className="gallery-section">
+          <Gallery>
             {postsToRender.map(post => (
-              <li key={post.slug}>
-                <GalleryCard post={post} />
-              </li>
+              <GalleryCard key={post.slug} post={post} />
             ))}
-          </ul>
+          </Gallery>
         )}
       </section>
     </main>

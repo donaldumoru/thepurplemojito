@@ -14,7 +14,7 @@ function NavButton({ label, path }) {
   return (
     <NavLink
       to={path}
-      className={`${!path ? 'text-disabled pointer-events-none opacity-60' : 'text-primary'} text-2xl tracking-widest sm:text-[2rem]`}
+      className={`${!path ? 'pointer-events-none text-(--primary) opacity-60' : 'text-(--primary)'} text-2xl tracking-widest sm:text-[2rem]`}
     >
       {label}
     </NavLink>
@@ -26,7 +26,7 @@ function Logo() {
     <li className="logo">
       <NavLink
         to="/"
-        className="text-primary text-[2rem] font-semibold tracking-widest sm:text-5xl"
+        className="text-[2rem] font-semibold tracking-widest text-(--primary) sm:text-5xl"
       >
         TPM
       </NavLink>

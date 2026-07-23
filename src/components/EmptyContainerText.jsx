@@ -1,6 +1,6 @@
 function EmptyContainerText({ children }) {
   return (
-    <div className="empty-container-text">
+    <div className="my-6 grid gap-2.5 text-center sm:my-8">
       <>{children}</>
     </div>
   );

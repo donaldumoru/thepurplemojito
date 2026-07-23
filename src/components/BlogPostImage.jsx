@@ -4,10 +4,10 @@ import 'react-loading-skeleton/dist/skeleton.css';
 function BlogPostImage({ post, imgDimensions, imageLoaded }) {
   return (
     <div
-      className={`post-img-container ${
+      className={`float-left mr-4 mb-4 h-auto w-full ${
         imgDimensions.height > imgDimensions.width
-          ? 'portrait-wrapper'
-          : 'landscape-wrapper'
+          ? 'sm:w-2/5'
+          : 'sm:mb-8 sm:h-[70vh]'
       }`}
       style={{
         aspectRatio: `${imgDimensions.width} / ${imgDimensions.height}`,
@@ -18,11 +18,7 @@ function BlogPostImage({ post, imgDimensions, imageLoaded }) {
       ) : (
         post && (
           <img
-            className={
-              imgDimensions.height > imgDimensions.width
-                ? 'portrait'
-                : 'landscape'
-            }
+            className="size-full h-full object-cover object-center"
             src={post.image.cover}
             alt={`${post.title} image`}
           />

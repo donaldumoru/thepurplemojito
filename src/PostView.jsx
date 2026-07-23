@@ -9,6 +9,7 @@ import TagsContainer from './components/TagsContainer';
 import Text from './components/Text';
 import Empty from './components/Empty';
 import EmptyContainerText from './components/EmptyContainerText';
+import { RotatingSquare } from 'react-loader-spinner';
 
 function Post() {
   const { handleSearch, posts, postsToRender, currentPostIndex, errorMessage } =
@@ -81,11 +82,13 @@ function Post() {
 
   if (errorMessage) {
     return (
-      <main className="loading-main">
+      <main className="mbs-16 items-center">
         <Empty>
           <EmptyContainerText>
             <>
-              <Text type="h2">{errorMessage}</Text>
+              <Text type="h2" className="text-[1.1rem]">
+                {errorMessage}
+              </Text>
               <Text type="p">Come back soon</Text>
             </>
           </EmptyContainerText>
@@ -95,20 +98,22 @@ function Post() {
   }
 
   if (!post) {
-    // return (
-    //   <main className="loading-main">
-    //     <RotatingSquare
-    //       color="rgb(58, 58, 58)"
-    //       ariaLabel="rotating-square-loading"
-    //     />
-    //   </main>
-    // );
-
-    return null;
+    return (
+      <main className="mbs-16 items-center">
+        <RotatingSquare
+          color="rgb(58, 58, 58)"
+          ariaLabel="rotating-square-loading"
+          wrapperStyle={{ justifyContent: 'center' }}
+        />
+      </main>
+    );
   }
 
   return (
-    <main className={`post-view${!loading ? ' visible' : ''}`} ref={mainRef}>
+    <main
+      className={`mx-4 flex flex-col justify-center border-b-[1.5px] border-(--dark-shade) transition-opacity duration-500 ease-in-out ${!loading ? 'opacity-100' : 'opacity-0'}`}
+      ref={mainRef}
+    >
       <Pagination
         currentPostIndex={currentPostIndex + 1}
         lastPostIndex={postsToRender.length}
@@ -123,9 +128,17 @@ function Post() {
           />
         ) : null}
 
-        <div className="post-text">
-          <Text type="h1">{post.title}</Text>
-          <Text type="h2">
+        <div>
+          <Text
+            type="h1"
+            className="text-[1.5rem] text-(--primary) sm:text-[2rem]"
+          >
+            {post.title}
+          </Text>
+          <Text
+            type="h2"
+            className="mb-6 font-(family-name:--subtitle) text-[1.2rem] sm:text-[1.5rem]"
+          >
             {post.year} &middot; {post.location.city}, {post.location.country}
           </Text>
 
@@ -137,7 +150,7 @@ function Post() {
             ))}
           </TagsContainer>
 
-          <div className="markdown">
+          <div className="mt-12 pb-4 text-[1.05rem] font-light tracking-normal text-(--primary)">
             <Markdown>{postData.story}</Markdown>
           </div>
         </div>
