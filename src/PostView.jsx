@@ -150,7 +150,7 @@ function Post() {
             ))}
           </TagsContainer>
 
-          <div className="mt-12 pb-4 text-[1.05rem] font-light tracking-normal text-(--primary)">
+          <div className="prose mt-12 max-w-none pb-4 font-light selection:bg-(--accent) selection:text-(--background)">
             <Markdown>{postData.story}</Markdown>
           </div>
         </div>

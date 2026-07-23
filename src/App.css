@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 :root {
   --logo-font: 3rem;
@@ -23,29 +24,4 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-.markdown a {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.markdown li::before {
-  content: '·';
-  font-weight: bolder;
-  font-size: 1.3rem;
-  margin-right: 10px;
-}
-
-.markdown > * {
-  margin-top: 1.5rem;
-}
-
-.markdown::selection {
-  color: var(--background);
-  background: var(--accent);
-}
-
-em {
-  font-weight: bolder;
 }
