@@ -9,14 +9,14 @@ function SearchBar({ searchQuery, handleSearch }) {
       <input
         id="search-input"
         type="text"
-        className="size-full border-b-[1.5px] border-(--dark-shade) bg-inherit text-[1.1rem] font-light tracking-widest text-(--primary) caret-(--dark-shade) placeholder:text-(--dark-shade) focus:outline-none sm:text-[2rem]"
+        className="size-full border-b-[1.5px] border-(--dark-shade) bg-inherit text-[1.1rem] font-light tracking-widest text-(--primary) caret-(--dark-shade) placeholder:text-(--dark-shade) focus:outline-none md:text-[1.5rem] lg:text-[2rem]"
         placeholder="Looking for a story ?"
         value={searchQuery}
         onChange={e => handleSearch(e.target.value)}
       />
 
       <div onClick={() => handleSearch('')}>
-        <GoX className="absolute right-2.5 bottom-0 aspect-square h-full w-5 cursor-pointer fill-(--dark-shade) sm:w-8.75" />
+        <GoX className="absolute right-2.5 bottom-0 aspect-square h-full w-5 cursor-pointer fill-(--dark-shade) sm:w-6 lg:w-8.75" />
       </div>
     </form>
   );

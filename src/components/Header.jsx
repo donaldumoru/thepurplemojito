@@ -36,8 +36,8 @@ function Logo() {
 
 function Header({ isHome, nextPath, prevPath }) {
   return (
-    <header className="pbe-4 sm:pbs-8 sm:pbe-4">
-      <nav className="m-4 flex justify-center">
+    <header className="pbe-4 sm:mx-6 sm:pbs-8 sm:pbe-4 md:mx-10 xl:mx-36">
+      <nav className="m-4 flex justify-center sm:m-0">
         <ul className="flex size-full justify-between">
           <NavListItem isHome={isHome} path={prevPath}>
             <NavButton label="prev" path={prevPath}></NavButton>

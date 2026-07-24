@@ -37,7 +37,7 @@ function HomeView() {
 
   return (
     <main
-      className="mx-4 flex flex-col justify-center opacity-0 transition-opacity duration-500 ease-in-out"
+      className="mx-4 mb-16 flex flex-col justify-center opacity-0 transition-opacity duration-500 ease-in-out sm:mx-6 md:mx-10 xl:mx-36"
       ref={mainRef}
     >
       <section>
@@ -78,7 +78,9 @@ function HomeView() {
               <>
                 <Text type="h2" className="font-light">
                   No memories about{' '}
-                  <span className="text-(--empty) italic">"{searchQuery}"</span>{' '}
+                  <span className="text-(--accent) italic">
+                    "{searchQuery}"
+                  </span>{' '}
                   yet
                 </Text>
                 <Text

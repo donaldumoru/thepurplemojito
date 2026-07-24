@@ -19,12 +19,12 @@ import { Post } from '../lib/model.js';
  ******************************************************************/
 
 const newPost = new Post({
-  title: 'Riverfront wind',
-  year: 2026,
-  city: 'Rotterdam',
-  country: 'Netherlands',
-  country_code: 'NL',
-  tags: ['food', 'restaurant', 'city'],
+  title: 'Morning coffee',
+  year: 2025,
+  city: 'Malaga',
+  country: 'Spain',
+  country_code: 'ES',
+  tags: ['roadtrip', 'adventure', 'travel', 'holiday'],
 });
 
 export default newPost;

@@ -1,9 +1,5 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta erat neque, maximus sagittis arcu finibus iaculis. Nullam varius mi a urna condimentum, et consectetur nisi tempor. Mauris fermentum tortor eu nisi tincidunt, in hendrerit magna dignissim. Fusce vel tortor neque. Vivamus cursus, lacus gravida rutrum tincidunt, quam sem malesuada risus, ac ullamcorper elit magna at odio. Nam congue fermentum leo, sed efficitur metus. Morbi porta magna tellus, eget ornare ipsum porttitor et. Sed facilisis, mi id rhoncus commodo, dui erat consectetur velit, non dictum dolor urna eget eros. In aliquam nec justo accumsan euismod. Fusce at leo ornare, consectetur risus at, pulvinar arcu.
 
-- Praesent rutrum risus ac sapien mattis tincidunt.
-- Praesent rutrum risus ac sapien mattis tincidunt.
-- Praesent rutrum risus ac sapien mattis tincidunt.
-
 In hac habitasse platea dictumst. Aliquam sit amet ornare nulla. Suspendisse potenti. [GOOGLE](https://google.com) Integer porta magna ornare faucibus vestibulum. Praesent maximus purus at eros sagittis, nec tempor elit pharetra. Donec efficitur sem ut eros pretium, sit amet varius ex dapibus. Cras sit amet risus sit amet felis imperdiet sodales. Nulla id mi vulputate, porta orci eu, bibendum mi. Suspendisse volutpat erat nisi, at rhoncus sapien bibendum vitae.
 
 Praesent rutrum risus ac sapien mattis tincidunt. Fusce libero nunc, venenatis ac mauris ut, eleifend tempor ipsum. Vivamus ullamcorper sagittis velit. Quisque sed porttitor libero, non laoreet ligula. Nunc ut aliquam arcu. Maecenas vel erat non augue pulvinar egestas. Cras blandit ornare pretium.

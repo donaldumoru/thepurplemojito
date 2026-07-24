@@ -6,13 +6,12 @@
 :root {
   --logo-font: 3rem;
   --primary: rgb(58, 58, 58);
-  --background: hsl(0, 0%, 96%);
-  --accent: #009432;
+  --background: #fcfcfa;
+  --accent: #f30c80;
   --dark-shade: hsl(220, 2%, 31%);
   --title-bg: hsla(213, 29%, 6%, 0.338);
   --location-bg: hsla(213, 29%, 6%, 0.235);
   --card-text: rgb(240, 232, 232);
-  --empty: #b66e4d;
   --transition-opacity: opacity 0.5s ease-in-out;
   --subtitle: 'Cormorant', serif;
 }

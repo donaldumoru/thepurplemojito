@@ -1,3 +1,11 @@
+> Learn how to think… Learn how to write. Writing is the crystallization of thinking and clear thinking is how you make good decisions when life gives you a set of less than ideal options.
+
+> — Unknown writer
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+> this is what peace looks like.
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta erat neque, maximus sagittis arcu finibus iaculis. Nullam varius mi a urna condimentum, et consectetur nisi tempor. Mauris fermentum tortor eu nisi tincidunt, in hendrerit magna dignissim. Fusce vel tortor neque. Vivamus cursus, lacus gravida rutrum tincidunt, quam sem malesuada risus, ac ullamcorper elit magna at odio. Nam congue fermentum leo, sed efficitur metus. Morbi porta magna tellus, eget ornare ipsum porttitor et. Sed facilisis, mi id rhoncus commodo, dui erat consectetur velit, non dictum dolor urna eget eros. In aliquam nec justo accumsan euismod. Fusce at leo ornare, consectetur risus at, pulvinar arcu.
 
 - Praesent rutrum risus ac sapien mattis tincidunt.

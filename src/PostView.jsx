@@ -111,7 +111,7 @@ function Post() {
 
   return (
     <main
-      className={`mx-4 flex flex-col justify-center border-b-[1.5px] border-(--dark-shade) transition-opacity duration-500 ease-in-out ${!loading ? 'opacity-100' : 'opacity-0'}`}
+      className={`mx-4 mb-16 flex flex-col justify-center border-b-[1.5px] border-(--dark-shade) transition-opacity duration-500 ease-in-out sm:mx-6 md:mx-10 xl:mx-80 ${!loading ? 'opacity-100' : 'opacity-0'}`}
       ref={mainRef}
     >
       <Pagination
@@ -150,7 +150,7 @@ function Post() {
             ))}
           </TagsContainer>
 
-          <div className="prose mt-12 max-w-none pb-4 font-light selection:bg-(--accent) selection:text-(--background)">
+          <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
             <Markdown>{postData.story}</Markdown>
           </div>
         </div>
