@@ -140,8 +140,8 @@ function Post({ slug }) {
           type="p"
           className="mt-6 text-[0.8rem] text-(--dark-shade) italic"
         >
-          For privacy, people mentioned in these posts are referred to only by
-          the first letter of their names.
+          For privacy, people mentioned in this post are referred to only by the
+          first letter of their names.
         </Text>
 
         <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
