@@ -9,7 +9,7 @@ function GalleryCard({ post }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const { title } = post;
-  const { thumbnail } = post.image;
+  const { thumbnail, altText } = post.image;
   const { city, countryCode } = post.location;
 
   return (
@@ -30,7 +30,7 @@ function GalleryCard({ post }) {
             }}
             className="absolute size-full object-cover"
             src={thumbnail}
-            alt={title}
+            alt={altText}
           />
 
           <Link to={`posts/${post.slug}`}>

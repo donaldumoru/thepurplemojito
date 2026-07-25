@@ -13,9 +13,10 @@ import { Post } from '../lib/model.js';
  *   country: "<Country>", // Non-empty string
  *   country_code: "<ISO country code>" // Non-empty string
  *   tags: ["tag1", "tag2"], // Non-empty array of strings
+ *   imageAltText: <Image AltText>, // Non empty string
  * }
  *
- * The metadata above is validated by the Post model (using jpath validation) before being inserted into the Supabase table
+ * The metadata above is validated by the Post model (using jpath validation: https://s3.codemax.net/metaxas/jpath.git) before being inserted into the Supabase table
  ******************************************************************/
 
 const newPost = new Post({
@@ -25,6 +26,7 @@ const newPost = new Post({
   country: 'Netherlands',
   country_code: 'NL',
   tags: ['roadtrip', 'adventure', 'travel', 'holiday'],
+  imageAltText: '',
 });
 
 export default newPost;

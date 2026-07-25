@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const dirname = path.dirname('cms/posts/');
 
-const filesArr = ['cover.webp', 'thumb.webp', 'story.md'];
+const filesArr = ['cover.webp', 'thumbnail.webp', 'story.md'];
 
 async function getFiles(slug) {
   try {

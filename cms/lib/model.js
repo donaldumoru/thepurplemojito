@@ -15,6 +15,7 @@ class Post {
     this.cover_image = `${BUCKET_URL}${this.slug}/cover.webp`;
     this.thumbnail = `${BUCKET_URL}${this.slug}/thumb.webp`;
     this.story = `${BUCKET_URL}${this.slug}/story.md`;
+    this.imageAltText = post.image_alt_text;
   }
 
   #createSlug() {
@@ -36,6 +37,7 @@ const datasetValidator = jpath.valueTest({
   country: jpath.notEmpty(String),
   country_code: jpath.notEmpty(String),
   tags: jpath.notEmpty([, , String]),
+  imageAltText: jpath.notEmpty(String),
 });
 
 export { Post, datasetValidator };

@@ -13,6 +13,7 @@ class PostModel {
     this.image = {
       cover: dbRow.cover_image,
       thumbnail: dbRow.thumbnail,
+      altText: dbRow.image_alt_text,
     };
     this.story = dbRow.story;
   }

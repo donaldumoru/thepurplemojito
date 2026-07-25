@@ -12,7 +12,7 @@ import EmptyContainerText from './components/EmptyContainerText';
 import { RotatingSquare } from 'react-loader-spinner';
 import Main from './components/Main';
 
-function Post() {
+function Post({ slug }) {
   const { handleSearch, posts, postsToRender, currentPostIndex, errorMessage } =
     useOutletContext();
 
@@ -20,15 +20,10 @@ function Post() {
 
   const [postData, setPostData] = useState({
     story: null,
-    dimensions: null,
     imageLoaded: false,
   });
 
-  const { slug } = useParams();
-
   const post = posts?.get(slug);
-
-  const postReady = post && postData.imageLoaded;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -36,7 +31,6 @@ function Post() {
 
     const getPostData = async function () {
       if (!post) {
-        // setFound(false);
         return;
       }
 
@@ -46,7 +40,6 @@ function Post() {
         img.onload = () => {
           setPostData(prev => ({
             ...prev,
-            dimensions: { height: img.naturalHeight, width: img.naturalWidth },
             imageLoaded: true,
           }));
         };
@@ -118,12 +111,8 @@ function Post() {
       />
 
       <BlogPost>
-        {postReady ? (
-          <BlogPostImage
-            post={post}
-            imgDimensions={postData.dimensions}
-            imageLoaded={postData.imageLoaded}
-          />
+        {post ? (
+          <BlogPostImage post={post} imageLoaded={postData.imageLoaded} />
         ) : null}
 
         <Text
@@ -157,7 +146,7 @@ function Post() {
 
 function PostView() {
   const { slug } = useParams();
-  return <Post key={slug} />;
+  return <Post key={slug} slug={slug} />;
 }
 
 export default PostView;
