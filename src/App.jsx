@@ -40,6 +40,13 @@ function App() {
     getPosts();
   }, []);
 
+  function preloadStamp() {
+    const img = new Image();
+    img.src = stamp;
+  }
+
+  useEffect(preloadStamp, []);
+
   function handleSearch(query) {
     setSearchQuery(query);
   }
