@@ -1,6 +1,6 @@
 import Markdown from 'react-markdown';
 import { useParams, useOutletContext, Link } from 'react-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Pagination from './components/Pagination';
 import BlogPost from './components/BlogPost';
 import BlogPostImage from './components/BlogPostImage';
@@ -10,12 +10,11 @@ import Text from './components/Text';
 import Empty from './components/Empty';
 import EmptyContainerText from './components/EmptyContainerText';
 import { RotatingSquare } from 'react-loader-spinner';
+import Main from './components/Main';
 
 function Post() {
   const { handleSearch, posts, postsToRender, currentPostIndex, errorMessage } =
     useOutletContext();
-
-  const mainRef = useRef(null);
 
   const [loading, setLoading] = useState(true);
 
@@ -110,9 +109,8 @@ function Post() {
   }
 
   return (
-    <main
-      className={`mx-4 mb-16 flex flex-col justify-center border-b-[1.5px] border-(--dark-shade) transition-opacity duration-500 ease-in-out sm:mx-6 md:mx-10 xl:mx-80 ${!loading ? 'opacity-100' : 'opacity-0'}`}
-      ref={mainRef}
+    <Main
+      className={`border-b-[1.5px] border-(--dark-shade) xl:mx-80 ${!loading ? 'opacity-100' : 'opacity-0'}`}
     >
       <Pagination
         currentPostIndex={currentPostIndex + 1}
@@ -128,34 +126,32 @@ function Post() {
           />
         ) : null}
 
-        <div>
-          <Text
-            type="h1"
-            className="text-[1.5rem] text-(--primary) sm:text-[2rem]"
-          >
-            {post.title}
-          </Text>
-          <Text
-            type="h2"
-            className="mb-6 font-(family-name:--subtitle) text-[1.2rem] sm:text-[1.5rem]"
-          >
-            {post.year} &middot; {post.location.city}, {post.location.country}
-          </Text>
+        <Text
+          type="h1"
+          className="text-[1.5rem] text-(--primary) sm:text-[2rem]"
+        >
+          {post.title}
+        </Text>
+        <Text
+          type="h2"
+          className="mb-6 font-(family-name:--subtitle) text-[1.2rem] sm:text-[1.5rem]"
+        >
+          {post.year} &middot; {post.location.city}, {post.location.country}
+        </Text>
 
-          <TagsContainer>
-            {post.tags.map(tag => (
-              <Link key={tag} to="/">
-                <Pill tag={tag} handleSearch={handleSearch} />
-              </Link>
-            ))}
-          </TagsContainer>
+        <TagsContainer>
+          {post.tags.map(tag => (
+            <Link key={tag} to="/">
+              <Pill tag={tag} handleSearch={handleSearch} />
+            </Link>
+          ))}
+        </TagsContainer>
 
-          <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
-            <Markdown>{postData.story}</Markdown>
-          </div>
+        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
+          <Markdown>{postData.story}</Markdown>
         </div>
       </BlogPost>
-    </main>
+    </Main>
   );
 }
 

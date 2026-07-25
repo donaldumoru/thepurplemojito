@@ -19,11 +19,11 @@ import { Post } from '../lib/model.js';
  ******************************************************************/
 
 const newPost = new Post({
-  title: 'Morning coffee',
-  year: 2025,
-  city: 'Malaga',
-  country: 'Spain',
-  country_code: 'ES',
+  title: 'Peace, apparently',
+  year: 2026,
+  city: 'Nistelrode',
+  country: 'Netherlands',
+  country_code: 'NL',
   tags: ['roadtrip', 'adventure', 'travel', 'holiday'],
 });
 

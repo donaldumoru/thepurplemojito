@@ -46,9 +46,16 @@ function App() {
 
   const postsToRender = posts
     ? Array.from(posts.values()).filter(post => {
-        const { city, country } = post.location;
+        const { city, country, countryCode } = post.location;
         const { title, year, tags } = post;
-        const searchItems = [city, country, title, year + '', ...tags];
+        const searchItems = [
+          city,
+          country,
+          countryCode,
+          title,
+          year + '',
+          ...tags,
+        ];
         return searchItems.some(item =>
           item.toLowerCase().includes(searchQuery.toLowerCase().trim()),
         );

@@ -19,7 +19,12 @@ class Post {
 
   #createSlug() {
     const { city, title } = this;
-    const slug = [city, title].join(' ').split(' ').join('-').toLowerCase();
+    const slug = [city, title]
+      .join(' ')
+      .replace(/[^a-zA-Z ]/g, '')
+      .split(' ')
+      .join('-')
+      .toLowerCase();
     return slug;
   }
 }
