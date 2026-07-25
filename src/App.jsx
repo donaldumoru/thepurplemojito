@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
 import { getRandomItems } from './helpers';
 import PostModel from './supabase/post-model';
+import stamp from './assets/icons/stamp.webp';
 
 function App() {
   const isHome = Boolean(useMatch('/'));

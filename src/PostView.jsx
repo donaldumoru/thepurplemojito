@@ -147,7 +147,7 @@ function Post() {
           ))}
         </TagsContainer>
 
-        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
+        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background)">
           <Markdown>{postData.story}</Markdown>
         </div>
       </BlogPost>

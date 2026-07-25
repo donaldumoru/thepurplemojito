@@ -38,71 +38,63 @@ function HomeView() {
 
   return (
     <Main className="opacity-0 xl:mx-36" ref={mainRef}>
-      <section>
-        <div className="mb-10 sm:mb-16">
-          <Text
-            type="h1"
-            className="mt-4 text-center text-2xl font-light text-(--primary) sm:text-[2rem]"
-          >
-            Moments, places, and{' '}
-            <span className="text-(--accent) italic">
-              a few things in between
-            </span>
-          </Text>
-        </div>
+      <Text
+        type="h1"
+        className="mt-4 mb-10 text-center text-2xl font-light text-(--primary) sm:mb-16 sm:text-[2rem]"
+      >
+        Moments, places, and{' '}
+        <span className="text-(--accent) italic">a few things in between</span>
+      </Text>
 
-        <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
+      <SearchBar searchQuery={searchQuery} handleSearch={handleSearch} />
 
-        {errorMessage ? (
-          <Empty>
-            <EmptyContainerText>
-              <>
-                <Text type="h2" className="text-[1.1rem]">
-                  {errorMessage}
-                </Text>
-                <Text type="p">Come back soon</Text>
-              </>
-            </EmptyContainerText>
-          </Empty>
-        ) : posts.size < 1 ? (
-          <RotatingSquare
-            color="rgb(58, 58, 58)"
-            ariaLabel="rotating-square-loading"
-            wrapperStyle={{ justifyContent: 'center' }}
-          />
-        ) : postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
-          <Empty>
-            <EmptyContainerText>
-              <>
-                <Text type="h2" className="font-light">
-                  No memories about{' '}
-                  <span className="text-(--accent) italic">
-                    "{searchQuery}"
-                  </span>{' '}
-                  yet
-                </Text>
-                <Text
-                  type="p"
-                  className="font-light text-(--primary) sm:text-[1.1rem]"
-                >
-                  But these memories might interest you instead
-                </Text>
-              </>
-            </EmptyContainerText>
-            <TagsContainer className="justify-center">
-              {emptyTags.map(tag => (
-                <Pill key={tag} tag={tag} handleSearch={handleSearch} />
-              ))}
-            </TagsContainer>
-          </Empty>
-        ) : (
-          <Gallery>
-            {postsToRender.map(post => (
-              <GalleryCard key={post.slug} post={post} />
+      {errorMessage ? (
+        <Empty>
+          <EmptyContainerText>
+            <>
+              <Text type="h2" className="text-[1.1rem]">
+                {errorMessage}
+              </Text>
+              <Text type="p">Come back soon</Text>
+            </>
+          </EmptyContainerText>
+        </Empty>
+      ) : posts.size < 1 ? (
+        <RotatingSquare
+          color="rgb(58, 58, 58)"
+          ariaLabel="rotating-square-loading"
+          wrapperStyle={{ justifyContent: 'center' }}
+        />
+      ) : postsToRender.length === 0 ? ( // TODO: fix for when no data to display data is empty and not havent made any memories yet
+        <Empty>
+          <EmptyContainerText>
+            <>
+              <Text type="h2" className="font-light">
+                No memories about{' '}
+                <span className="text-(--accent) italic">"{searchQuery}"</span>{' '}
+                yet
+              </Text>
+              <Text
+                type="p"
+                className="font-light text-(--primary) sm:text-[1.1rem]"
+              >
+                But these memories might interest you instead
+              </Text>
+            </>
+          </EmptyContainerText>
+          <TagsContainer className="justify-center">
+            {emptyTags.map(tag => (
+              <Pill key={tag} tag={tag} handleSearch={handleSearch} />
             ))}
-          </Gallery>
-        )}
-      </section>
+          </TagsContainer>
+        </Empty>
+      ) : (
+        <Gallery>
+          {postsToRender.map(post => (
+            <GalleryCard key={post.slug} post={post} />
+          ))}
+        </Gallery>
+      )}
     </Main>
   );
 }
