@@ -6,8 +6,6 @@ import { Outlet, useMatch, useParams } from 'react-router';
 import { getRandomItems } from './helpers';
 import PostModel from './supabase/post-model';
 
-console.log(import.meta.env.VITE_DB_TABLE);
-
 function App() {
   const isHome = Boolean(useMatch('/'));
   const { slug } = useParams();
@@ -25,7 +23,6 @@ function App() {
           .order('year', { ascending: false });
 
         if (error) {
-          console.log(error);
           throw new Error('No posts have been published yet');
         }
 
