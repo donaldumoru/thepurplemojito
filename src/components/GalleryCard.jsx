@@ -16,7 +16,7 @@ function GalleryCard({ post }) {
     <>
       {
         <li className="group relative aspect-square w-full cursor-pointer transition-all duration-150 ease-in-out sm:hover:z-1 sm:hover:scale-102">
-          <div className="absolute top-0 z-2 flex h-8 w-full items-center justify-end gap-1.25 bg-(--location-bg) pr-1.25 text-[0.65rem] text-(--card-text) opacity-100 transition-all duration-150 ease-in-out sm:text-[0.8rem] sm:opacity-0 sm:group-hover:opacity-100">
+          <div className="absolute top-0 z-2 hidden h-8 w-full items-center justify-end gap-1.25 bg-(--location-bg) pr-1.25 text-[0.65rem] text-(--card-text) opacity-100 transition-all duration-150 ease-in-out sm:flex sm:text-[0.8rem] sm:opacity-0 sm:group-hover:opacity-100">
             <IoLocationOutline className="hidden w-3.75 sm:block" />
             <span>
               {city}, {countryCode} {post.year}
