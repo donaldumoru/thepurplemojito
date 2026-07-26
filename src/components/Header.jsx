@@ -1,4 +1,8 @@
+import { useContext, useRef } from 'react';
+import ThemeContext from '../DarkModeContext';
+
 import { NavLink } from 'react-router';
+import Pill from './Pill';
 
 function NavListItem({ children, isHome, path }) {
   return (
@@ -34,10 +38,30 @@ function Logo() {
   );
 }
 
-function Header({ isHome, nextPath, prevPath }) {
+function Header({ isHome, nextPath, prevPath, setTheme }) {
+  const previousTheme = useContext(ThemeContext);
+  console.log(previousTheme);
+  const currentTheme = previousTheme === 'dark' ? 'light' : 'dark';
+
+  const htmlRef = useRef(document.documentElement).current;
+
+  function handleThemeToggle() {
+    setTheme(currentTheme);
+    htmlRef.classList.remove(...htmlRef.classList);
+    htmlRef.classList.add(currentTheme);
+
+    localStorage.setItem('tpm-theme', currentTheme);
+  }
+
   return (
-    <header className="pbe-4 sm:mx-6 sm:pbs-8 sm:pbe-4 md:mx-10 xl:mx-36">
-      <nav className="m-4 flex justify-center sm:m-0">
+    <header className="m-4 pbe-4 sm:mx-6 sm:pbs-8 sm:pbe-4 md:mx-10 xl:mx-36">
+      <div className="mb-4 flex justify-end">
+        <Pill
+          tag={`Go ${previousTheme === 'dark' ? 'Light' : 'Dark'}`}
+          handler={handleThemeToggle}
+        />
+      </div>
+      <nav className="flex justify-center sm:m-0">
         <ul className="flex size-full justify-between">
           <NavListItem isHome={isHome} path={prevPath}>
             <NavButton label="prev" path={prevPath}></NavButton>

@@ -13,7 +13,7 @@ Now, with a little more time on my hands (for the next few months at least) and 
 
 As I thought about what the first post on this little website should be, I kept coming back to the day the photo above was taken. It also doesn't help that I'm over a week late on the promise I made to M that I'd have the first post up.
 
-Well. it's that time of year when the weather starts getting better. By "better", I mean cooler, a preference that still surprises people considering where I grew up. The two weeks leading up to this day were remarkably calm. Probably the calmest I'd had in four years and on this day, friends of M were getting married. If there has to be a reason to spend a Saturday outside, this is probably one of the better ones. The ceremony took place in nature surrounded by a lot of trees and you'd seldom hear a car engine. I'm fairly convinced the wedding guests doubled the town's car population.
+Well, the weather's slowly getting better. By "better", I mean cooler, a preference that still surprises people considering where I grew up. The two weeks leading up to this day were remarkably calm. Probably the calmest I'd had in four years and on this day, friends of M were getting married. If there has to be a reason to spend a whole Saturday outside, this is probably one of the better ones. The ceremony took place in nature surrounded by a lot of green and you'd seldom hear a car engine. I'm fairly convinced cars of the wedding guests doubled the town's car population.
 
 I put this photo on my Instagram story. J's response was, verbatim,
 

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
+import ThemeContext from './DarkModeContext';
 import { getRandomItems } from './helpers';
 import PostModel from './supabase/post-model';
 import stamp from './assets/icons/stamp.webp';
@@ -10,6 +11,31 @@ import stamp from './assets/icons/stamp.webp';
 function App() {
   const isHome = Boolean(useMatch('/'));
   const { slug } = useParams();
+
+  const [theme, setTheme] = useState(null);
+
+  useEffect(() => {
+    const setMode = function () {
+      const savedTheme = localStorage.getItem('tpm-theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+        return;
+      }
+
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      const prefersDark = mql.matches;
+
+      const theme = prefersDark ? 'dark' : 'light';
+      setTheme(theme);
+
+      const html = document.documentElement;
+      html.classList.remove(...html.classList);
+      html.classList.add(theme);
+      localStorage.setItem('tpm-theme', theme);
+    };
+
+    setMode();
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [posts, setPosts] = useState(new Map());
@@ -97,19 +123,26 @@ function App() {
 
   return (
     <>
-      <Header isHome={isHome} nextPath={nextPath} prevPath={prevPath} />
-      <Outlet
-        context={{
-          postsToRender,
-          handleSearch,
-          searchQuery,
-          emptyTags,
-          currentPostIndex,
-          posts,
-          errorMessage,
-          setErrorMessage,
-        }}
-      />
+      <ThemeContext value={theme}>
+        <Header
+          isHome={isHome}
+          nextPath={nextPath}
+          prevPath={prevPath}
+          setTheme={setTheme}
+        />
+        <Outlet
+          context={{
+            postsToRender,
+            handleSearch,
+            searchQuery,
+            emptyTags,
+            currentPostIndex,
+            posts,
+            errorMessage,
+            setErrorMessage,
+          }}
+        />
+      </ThemeContext>
     </>
   );
 }

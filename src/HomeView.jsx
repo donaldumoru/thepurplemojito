@@ -84,7 +84,7 @@ function HomeView() {
           </EmptyContainerText>
           <TagsContainer className="justify-center">
             {emptyTags.map(tag => (
-              <Pill key={tag} tag={tag} handleSearch={handleSearch} />
+              <Pill key={tag} tag={tag} handler={handleSearch} />
             ))}
           </TagsContainer>
         </Empty>

@@ -123,7 +123,7 @@ function Post({ slug }) {
         </Text>
         <Text
           type="h2"
-          className="mb-6 font-(family-name:--subtitle) text-[1.2rem] sm:text-[1.5rem]"
+          className="mb-6 font-(family-name:--subtitle) text-[1.2rem] text-(--primary) sm:text-[1.5rem]"
         >
           {post.year} &middot; {post.location.city}, {post.location.country}
         </Text>
@@ -131,7 +131,7 @@ function Post({ slug }) {
         <TagsContainer>
           {post.tags.map(tag => (
             <Link key={tag} to="/">
-              <Pill tag={tag} handleSearch={handleSearch} />
+              <Pill tag={tag} handler={handleSearch} />
             </Link>
           ))}
         </TagsContainer>

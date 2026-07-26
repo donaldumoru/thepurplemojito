@@ -1,4 +1,4 @@
-function TagsContainer({ children, className }) {
+function TagsContainer({ children, className = '' }) {
   return <ul className={`flex flex-wrap gap-4 ${className}`}>{children}</ul>;
 }
 

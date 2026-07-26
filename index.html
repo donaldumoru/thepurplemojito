@@ -1,12 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPM</title>
+
+    <script>
+      (function () {
+        const html = document.documentElement;
+        const theme = localStorage.getItem('tpm-theme');
+        if (!theme) {
+          return;
+        }
+
+        html.classList.remove(...html.classList);
+        html.classList.add(theme);
+      })();
+    </script>
   </head>
-  <body>
+  <body class="dark:bg-(--dark-bg)">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
