@@ -1,5 +1,7 @@
 import { useContext, useRef } from 'react';
 import ThemeContext from '../DarkModeContext';
+import { BsMoonStarsFill } from 'react-icons/bs';
+import { BsSun } from 'react-icons/bs';
 
 import { NavLink } from 'react-router';
 import Pill from './Pill';
@@ -54,11 +56,17 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
 
   return (
     <header className="m-4 pbe-4 sm:mx-6 sm:pbs-4 sm:pbe-4 md:mx-10 xl:mx-36">
-      <div className="mb-8 flex justify-end">
-        <Pill
+      <div className="mb-8 flex justify-end" onClick={handleThemeToggle}>
+        {/* <Pill
           tag={`Go ${previousTheme === 'dark' ? 'Light' : 'Dark'}`}
           handler={handleThemeToggle}
-        />
+        /> */}
+
+        {currentTheme === 'light' ? (
+          <BsSun className="aspect-square h-full w-6 cursor-pointer fill-(--dark-primary)" />
+        ) : (
+          <BsMoonStarsFill className="aspect-square h-full w-6 cursor-pointer fill-(--primary)" />
+        )}
       </div>
       <nav className="flex justify-center sm:m-0">
         <ul className="flex size-full justify-between">

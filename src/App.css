@@ -18,7 +18,8 @@
   --subtitle: 'Cormorant', serif;
 
   --dark-bg: #0f0d0e;
-  --dark-primary: #f9f4da;
+  /* --dark-primary: #f9f4da; */
+  --dark-primary: #abaaa7;
 }
 
 body {
