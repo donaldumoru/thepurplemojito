@@ -18,7 +18,7 @@ function NavButton({ label, path }) {
   return (
     <NavLink
       to={path}
-      className={`${!path ? 'pointer-events-none text-(--primary) opacity-60' : 'text-(--primary)'} text-2xl tracking-widest sm:text-[2rem]`}
+      className={`${!path ? 'pointer-events-none opacity-60' : ''} text-2xl tracking-widest text-(--primary) sm:text-[2rem] dark:text-(--dark-primary)`}
     >
       {label}
     </NavLink>
@@ -30,7 +30,7 @@ function Logo() {
     <li className="logo">
       <NavLink
         to="/"
-        className="text-[2rem] font-semibold tracking-widest text-(--primary) sm:text-5xl"
+        className="text-[2rem] font-semibold tracking-widest text-(--primary) sm:text-5xl dark:text-(--dark-primary)"
       >
         TPM
       </NavLink>
@@ -40,7 +40,6 @@ function Logo() {
 
 function Header({ isHome, nextPath, prevPath, setTheme }) {
   const previousTheme = useContext(ThemeContext);
-  console.log(previousTheme);
   const currentTheme = previousTheme === 'dark' ? 'light' : 'dark';
 
   const htmlRef = useRef(document.documentElement).current;
@@ -54,8 +53,8 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
   }
 
   return (
-    <header className="m-4 pbe-4 sm:mx-6 sm:pbs-8 sm:pbe-4 md:mx-10 xl:mx-36">
-      <div className="mb-4 flex justify-end">
+    <header className="m-4 pbe-4 sm:mx-6 sm:pbs-4 sm:pbe-4 md:mx-10 xl:mx-36">
+      <div className="mb-8 flex justify-end">
         <Pill
           tag={`Go ${previousTheme === 'dark' ? 'Light' : 'Dark'}`}
           handler={handleThemeToggle}

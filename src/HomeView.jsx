@@ -40,7 +40,7 @@ function HomeView() {
     <Main className="opacity-0 xl:mx-36" ref={mainRef}>
       <Text
         type="h1"
-        className="mt-4 mb-10 text-center text-2xl font-light text-(--primary) sm:mb-16 sm:text-[2rem]"
+        className="mt-4 mb-10 text-center text-2xl font-light text-(--primary) sm:mb-16 sm:text-[2rem] dark:text-(--dark-primary)"
       >
         Moments, places, and{' '}
         <span className="text-(--accent) italic">a few things in between</span>
