@@ -20,4 +20,9 @@ const randomItemsClosure = function () {
 
 const getRandomItems = randomItemsClosure();
 
-export { getRandomItems };
+const setSingleClass = function (element, className) {
+  element.classList.remove(...element.classList);
+  element.classList.add(className);
+};
+
+export { getRandomItems, setSingleClass };

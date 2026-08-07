@@ -2,9 +2,9 @@ import { useContext, useRef } from 'react';
 import ThemeContext from '../DarkModeContext';
 import { BsMoonStarsFill } from 'react-icons/bs';
 import { BsSun } from 'react-icons/bs';
+import { setSingleClass } from '../helpers';
 
 import { NavLink } from 'react-router';
-import Pill from './Pill';
 
 function NavListItem({ children, isHome, path }) {
   return (
@@ -48,9 +48,7 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
 
   function handleThemeToggle() {
     setTheme(currentTheme);
-    htmlRef.classList.remove(...htmlRef.classList);
-    htmlRef.classList.add(currentTheme);
-
+    setSingleClass(htmlRef, currentTheme);
     localStorage.setItem('tpm-theme', currentTheme);
   }
 

@@ -8,7 +8,6 @@
 :root {
   --logo-font: 3rem;
   --primary: rgb(58, 58, 58);
-  /* --background: #fcfcfa; */
   --background: #f7f7f7;
   --accent: #f30c80;
   --dark-shade: hsl(220, 2%, 31%);
@@ -19,13 +18,11 @@
   --subtitle: 'Cormorant', serif;
 
   --dark-bg: #0f0d0e;
-  /* --dark-primary: #f9f4da; */
   --dark-primary: #abaaa7;
 }
 
 body {
   font-family: 'Nunito Sans', sans-serif;
-  /* background-color: var(--background); */
 }
 
 html {

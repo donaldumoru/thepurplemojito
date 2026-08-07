@@ -4,7 +4,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
 import ThemeContext from './DarkModeContext';
-import { getRandomItems } from './helpers';
+import { getRandomItems, setSingleClass } from './helpers';
 import PostModel from './supabase/post-model';
 import stamp from './assets/icons/stamp.webp';
 
@@ -29,8 +29,7 @@ function App() {
       setTheme(theme);
 
       const html = document.documentElement;
-      html.classList.remove(...html.classList);
-      html.classList.add(theme);
+      setSingleClass(html, theme);
       localStorage.setItem('tpm-theme', theme);
     };
 

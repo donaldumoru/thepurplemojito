@@ -72,6 +72,18 @@ function Post({ slug }) {
     };
   }, [post]);
 
+  useEffect(() => {
+    if (!post) {
+      return;
+    }
+
+    document.title = `TPM - ${post.title}`;
+
+    return () => {
+      document.title = `TPM`;
+    };
+  }, [post]);
+
   if (errorMessage) {
     return (
       <main className="mbs-16 items-center">
