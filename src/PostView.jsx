@@ -72,8 +72,10 @@ function Post({ slug }) {
     };
   }, [post]);
 
+  console.log(post);
+
   useEffect(() => {
-    if (!post) {
+    if (!post?.title) {
       return;
     }
 
@@ -82,7 +84,7 @@ function Post({ slug }) {
     return () => {
       document.title = `TPM`;
     };
-  }, [post]);
+  }, [post?.title]);
 
   if (errorMessage) {
     return (
