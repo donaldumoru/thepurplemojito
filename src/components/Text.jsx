@@ -1,4 +1,4 @@
-function Text({ type, className, children }) {
+function Text({ type, className = '', children }) {
   const TextType = type;
   return (
     <TextType className={`${className} dark:text-(--dark-primary)`}>
