@@ -72,8 +72,6 @@ function Post({ slug }) {
     };
   }, [post]);
 
-  console.log(post);
-
   useEffect(() => {
     if (!post?.title) {
       return;

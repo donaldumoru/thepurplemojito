@@ -55,11 +55,6 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
   return (
     <header className="m-4 pbe-4 sm:mx-6 sm:pbs-4 sm:pbe-4 md:mx-10 xl:mx-36">
       <div className="mb-8 flex justify-end">
-        {/* <Pill
-          tag={`Go ${previousTheme === 'dark' ? 'Light' : 'Dark'}`}
-          handler={handleThemeToggle}
-        /> */}
-
         {currentTheme === 'light' ? (
           <BsSun
             className="aspect-square h-full w-6 cursor-pointer fill-(--dark-primary)"
