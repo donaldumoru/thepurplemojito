@@ -1,11 +1,12 @@
-import supabase from './supabase/supabase-client';
-import Header from './components/Header';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Outlet, useMatch, useParams } from 'react-router';
 import ThemeContext from './DarkModeContext';
 import { getRandomItems, setSingleClass } from './helpers';
+import supabase from './supabase/supabase-client';
 import PostModel from './supabase/post-model';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import stamp from './assets/icons/stamp.webp';
 
 function App() {
@@ -134,6 +135,7 @@ function App() {
             setErrorMessage,
           }}
         />
+        <Footer />
       </ThemeContext>
     </>
   );

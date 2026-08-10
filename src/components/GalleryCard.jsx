@@ -23,11 +23,10 @@ function GalleryCard({ post }) {
             </span>
           </div>
 
-          {!imageLoaded ? <Skeleton height="100%" /> : null}
+          {!imageLoaded && <Skeleton height="100%" />}
+
           <img
-            onLoad={() => {
-              setImageLoaded(true);
-            }}
+            onLoad={() => setImageLoaded(true)}
             className="absolute size-full object-cover"
             src={thumbnail}
             alt={altText}

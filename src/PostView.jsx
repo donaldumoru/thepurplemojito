@@ -17,11 +17,7 @@ function Post({ slug }) {
     useOutletContext();
 
   const [loading, setLoading] = useState(true);
-
-  const [postData, setPostData] = useState({
-    story: null,
-    imageLoaded: false,
-  });
+  const [story, setStory] = useState('');
 
   const post = posts?.get(slug);
 
@@ -29,23 +25,12 @@ function Post({ slug }) {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    const getPostData = async function () {
+    const getPostStory = async function () {
       if (!post) {
         return;
       }
 
       try {
-        const img = new Image();
-
-        img.onload = () => {
-          setPostData(prev => ({
-            ...prev,
-            imageLoaded: true,
-          }));
-        };
-
-        img.src = post.image.cover;
-
         const path = post ? post.story : null;
         if (!path) {
           return;
@@ -56,16 +41,17 @@ function Post({ slug }) {
           throw new Error('*Something went wrong while loading the story :-(*');
         }
 
-        const story = await response.text();
-        setPostData(prev => ({ ...prev, story }));
+        const markdown = await response.text();
+
+        setStory(markdown);
         setLoading(false);
       } catch (error) {
-        setPostData(prev => ({ ...prev, story: error.message }));
+        setStory(error.message);
         setLoading(false);
       }
     };
 
-    getPostData();
+    getPostStory();
 
     return () => {
       controller.abort();
@@ -123,9 +109,7 @@ function Post({ slug }) {
       />
 
       <BlogPost>
-        {post ? (
-          <BlogPostImage post={post} imageLoaded={postData.imageLoaded} />
-        ) : null}
+        {post ? <BlogPostImage image={post.image} /> : null}
 
         <Text
           type="h1"
@@ -156,8 +140,8 @@ function Post({ slug }) {
           first letter of their names.
         </Text>
 
-        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:dark:text-(--dark-primary) prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background) dark:text-(--dark-primary)">
-          <Markdown>{postData.story}</Markdown>
+        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:dark:text-(--dark-primary) prose-strong:text-(--dark-primary) prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background) dark:text-(--dark-primary)">
+          <Markdown>{story}</Markdown>
         </div>
       </BlogPost>
     </Main>
