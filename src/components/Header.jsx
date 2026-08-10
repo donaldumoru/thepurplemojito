@@ -68,7 +68,7 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
         )}
       </div>
       <nav className="flex justify-center sm:m-0">
-        <ul className="flex size-full justify-between">
+        <ul className="flex size-full items-center justify-between">
           <NavListItem isHome={isHome} path={prevPath}>
             <NavButton label="prev" path={prevPath}></NavButton>
           </NavListItem>
