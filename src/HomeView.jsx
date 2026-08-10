@@ -1,5 +1,5 @@
 import { useOutletContext } from 'react-router';
-import SearchBar from './components/Form';
+import SearchBar from './components/SearchBar';
 import GalleryCard from './components/GalleryCard';
 import Empty from './components/Empty';
 import Pill from './components/Pill';
