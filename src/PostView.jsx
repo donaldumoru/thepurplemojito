@@ -22,6 +22,10 @@ function Post({ slug }) {
   const post = posts?.get(slug);
 
   useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
 
@@ -138,7 +142,7 @@ function Post({ slug }) {
           first letter of their names.
         </Text>
 
-        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:dark:text-(--dark-primary) prose-strong:text-(--dark-primary) prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background) dark:text-(--dark-primary)">
+        <div className="prose sm:prose-p:text-[1.125rem] prose-a:text-(--accent) prose-a:font-semibold prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:dark:text-(--dark-primary) prose-strong:dark:text-(--dark-primary) prose-blockquote:[&>p]:last-of-type:after:content-none mt-12 max-w-none pb-4 text-[1.05rem] selection:bg-(--accent) selection:text-(--background) dark:text-(--dark-primary)">
           <Markdown>{story}</Markdown>
         </div>
       </BlogPost>
