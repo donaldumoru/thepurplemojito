@@ -135,7 +135,7 @@ function App() {
             setErrorMessage,
           }}
         />
-        <Footer />
+        {posts.size > 0 && <Footer />}
       </ThemeContext>
     </>
   );
