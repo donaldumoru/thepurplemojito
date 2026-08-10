@@ -1,8 +1,7 @@
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import ThemeContext from '../DarkModeContext';
 import { BsMoonStarsFill } from 'react-icons/bs';
 import { BsSun } from 'react-icons/bs';
-import { setSingleClass } from '../helpers';
 
 import { NavLink } from 'react-router';
 
@@ -44,12 +43,8 @@ function Header({ isHome, nextPath, prevPath, setTheme }) {
   const previousTheme = useContext(ThemeContext);
   const currentTheme = previousTheme === 'dark' ? 'light' : 'dark';
 
-  const htmlRef = useRef(document.documentElement).current;
-
   function handleThemeToggle() {
     setTheme(currentTheme);
-    setSingleClass(htmlRef, currentTheme);
-    localStorage.setItem('tpm-theme', currentTheme);
   }
 
   return (

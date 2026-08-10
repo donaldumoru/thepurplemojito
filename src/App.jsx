@@ -12,29 +12,22 @@ function App() {
   const isHome = Boolean(useMatch('/'));
   const { slug } = useParams();
 
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('tpm-theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  });
 
   useEffect(() => {
-    const setMode = function () {
-      const savedTheme = localStorage.getItem('tpm-theme');
-      if (savedTheme) {
-        setTheme(savedTheme);
-        return;
-      }
-
-      const mql = window.matchMedia('(prefers-color-scheme: dark)');
-      const prefersDark = mql.matches;
-
-      const theme = prefersDark ? 'dark' : 'light';
-      setTheme(theme);
-
-      const html = document.documentElement;
-      setSingleClass(html, theme);
-      localStorage.setItem('tpm-theme', theme);
-    };
-
-    setMode();
-  }, []);
+    const html = document.documentElement;
+    setSingleClass(html, theme, ['light', 'dark']);
+    localStorage.setItem('tpm-theme', theme);
+  }, [theme]);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [posts, setPosts] = useState(new Map());
