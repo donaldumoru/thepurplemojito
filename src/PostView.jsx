@@ -100,9 +100,7 @@ function Post({ slug }) {
   }
 
   return (
-    <Main
-      className={`border-b-[1.5px] border-(--dark-shade) xl:mx-80 ${!loading ? 'opacity-100' : 'opacity-0'}`}
-    >
+    <Main className={`xl:mx-80 ${!loading ? 'opacity-100' : 'opacity-0'}`}>
       <Pagination
         currentPostIndex={currentPostIndex + 1}
         lastPostIndex={postsToRender.length}
