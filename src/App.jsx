@@ -13,6 +13,9 @@ function App() {
   const isHome = Boolean(useMatch('/'));
   const { slug } = useParams();
 
+  const [searchQuery, setSearchQuery] = useState('');
+  const [posts, setPosts] = useState(new Map());
+  const [errorMessage, setErrorMessage] = useState('');
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('tpm-theme');
     if (savedTheme) {
@@ -29,10 +32,6 @@ function App() {
     setSingleClass(html, theme, ['light', 'dark']);
     localStorage.setItem('tpm-theme', theme);
   }, [theme]);
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const [posts, setPosts] = useState(new Map());
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const getPosts = async function () {
@@ -59,12 +58,10 @@ function App() {
     getPosts();
   }, []);
 
-  function preloadStamp() {
+  useEffect(() => {
     const img = new Image();
     img.src = stamp;
-  }
-
-  useEffect(preloadStamp, []);
+  }, []);
 
   function handleSearch(query) {
     setSearchQuery(query);
